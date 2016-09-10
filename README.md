@@ -2,7 +2,7 @@
 A weather app built with React, Redux and Chartist
 
 Overview
-++++++++++
+
 
 This is a basic weather app that has been built using React, Redux and Chartist. 
 I am pulling in data from the Open Weather Maps API and I am using geolocation to display the current weather conditions to the user,
@@ -13,7 +13,7 @@ degrees in fahrenheit. The great thing about the structure of this application i
 to make tweaks to what is being displayed. Chartist's ease of use allows for this type of flexibility.
 
 Screenshots:
-++++++++++
+
 ![alt tag](http://i.imgur.com/CIJdu4x.png)
 
 The above image is of the application on a macbook air. My design concept for this application were aimed at simplicity for reading and
