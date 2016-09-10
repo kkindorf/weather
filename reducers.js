@@ -17,15 +17,12 @@ var initialWeatherState = {
     var weatherReducer = function(state, action){
         state = state || initialWeatherState;
         if(action.type === actions.SHOW_CURRENT_WEATHER){
-            console.log(action.id)
             var updatedCurrentWeather = Object.assign({}, state, {
-
                 currentCityName: action.city,
                 currentTemp: Math.round(action.temp) +" F ",
                 currentDescription: action.description,
                 id: action.id,
                 loading: false
-
             });
 
             return updatedCurrentWeather;
@@ -33,51 +30,48 @@ var initialWeatherState = {
         if(action.type === actions.SHOW_CURRENT_WEATHER_ERROR){
             throw new Error('The current weather conditions could not be retrieved!');
         }
-        if(action.type === actions.SHOW_HOURLY_WEATHER){
-            console.log(action.chartData)
-            
-            var updatedHourlyWeather = Object.assign({}, state, {
+        if(action.type === actions.SHOW_HOURLY_WEATHER){  
+                var updatedHourlyWeather = Object.assign({}, state, {
                 threeHourForeCast:{
-            
-                    labels:[setTime(action.chartData.list['0'].dt), setTime(action.chartData.list[1].dt), setTime(action.chartData.list[2].dt), setTime(action.chartData.list[3].dt) ],
-                    series:[[action.chartData.list['0'].main.temp_max, action.chartData.list['1'].main.temp_max,  action.chartData.list['2'].main.temp_max, action.chartData.list['3'].main.temp_max ],
-                            [action.chartData.list['0'].main.humidity, action.chartData.list['1'].main.humidity,  action.chartData.list['2'].main.humidity, action.chartData.list['3'].main.humidity]
+                        labels:[setTime(action.chartData.list['0'].dt), setTime(action.chartData.list[1].dt), setTime(action.chartData.list[2].dt), setTime(action.chartData.list[3].dt) ],
+                        series:[[action.chartData.list['0'].main.temp_max, action.chartData.list['1'].main.temp_max,  action.chartData.list['2'].main.temp_max, action.chartData.list['3'].main.temp_max ],
+                                [action.chartData.list['0'].main.humidity, action.chartData.list['1'].main.humidity,  action.chartData.list['2'].main.humidity, action.chartData.list['3'].main.humidity]
+                        ]
+                },
+                threeHourOptions:{
+                    chartPadding: {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 20
+                    },
+                    axisY: {
+                        onlyInteger: true
+                    },
+                    plugins: [
+                        Chartist.plugins.ctAxisTitle({
+                            axisX: {
+                                axisTitle: 'Time of Day',
+                                axisClass: 'ct-axis-title',
+                                offset: {
+                                    x: -15,
+                                    y: 45
+                                },
+                                textAnchor: 'end'
+                            },
+                            axisY: {
+                                axisTitle: 'Total',
+                                axisClass: 'ct-axis-title',
+                                offset: {
+                                    x: 0,
+                                    y: -1
+                                },
+                                flipTitle: false,
+                                textAnchor: 'start'
+                            }
+                        })
                     ]
-            },
-            threeHourOptions:{
-                chartPadding: {
-                    top: 20,
-                    right: 20,
-                    bottom: 20,
-                    left: 20
-                },
-                axisY: {
-                    onlyInteger: true
-                },
-                plugins: [
-                    Chartist.plugins.ctAxisTitle({
-                        axisX: {
-                            axisTitle: 'Time of Day',
-                            axisClass: 'ct-axis-title',
-                            offset: {
-                                x: -15,
-                                y: 45
-                            },
-                            textAnchor: 'end'
-                        },
-                        axisY: {
-                            axisTitle: 'Total',
-                            axisClass: 'ct-axis-title',
-                            offset: {
-                                x: 0,
-                                y: -1
-                            },
-                            flipTitle: false,
-                            textAnchor: 'start'
-                        }
-                    })
-                ]
-            }
+                }
             })
             return updatedHourlyWeather;
         }
@@ -85,53 +79,49 @@ var initialWeatherState = {
             throw new Error('The hourly weather forecast could not be retrieved!');
         }
         if(action.type === actions.SHOW_FIVE_DAY_WEATHER){
-            console.log(action.fiveDayData);
-            //console.log(setDate(action.fiveDayData.list['0'].dt))
-            var updatedFiveDayWeather = Object.assign({}, state, {fiveDayForeCast: {
-                    labels:[whichDay(setDate(action.fiveDayData.list['0'].dt)),whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
-                    series:[[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max],
-                    [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]
-                    
-                   ]
+                var updatedFiveDayWeather = Object.assign({}, state, {fiveDayForeCast: {
+                        labels:[whichDay(setDate(action.fiveDayData.list['0'].dt)),whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
+                        series:[[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max],
+                        [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]   
+                       ]
 
-
-                },fiveDayOptions:{
-                chartPadding: {
-                    top: 20,
-                    right: 20,
-                    bottom: 20,
-                    left: 20
-                },
-                axisY: {
-                    onlyInteger: true
-                },
-                plugins: [
-                    Chartist.plugins.ctAxisTitle({
-                        axisX: {
-                            axisTitle: 'Day of Week',
-                            axisClass: 'ct-axis-title',
-                            offset: {
-                                x: -15,
-                                y: 45
+                    },
+                    fiveDayOptions:{
+                    chartPadding: {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 20
+                    },
+                    axisY: {
+                        onlyInteger: true
+                    },
+                    plugins: [
+                        Chartist.plugins.ctAxisTitle({
+                            axisX: {
+                                axisTitle: 'Day of Week',
+                                axisClass: 'ct-axis-title',
+                                offset: {
+                                    x: -15,
+                                    y: 45
+                                },
+                                textAnchor: 'end'
                             },
-                            textAnchor: 'end'
-                        },
-                        axisY: {
-                            axisTitle: 'Total',
-                            axisClass: 'ct-axis-title',
-                            offset: {
-                                x: 0,
-                                y: -1
-                            },
-                            flipTitle: false,
-                            textAnchor: 'start'
-                        }
-                    })
-                ]
-            },
+                            axisY: {
+                                axisTitle: 'Total',
+                                axisClass: 'ct-axis-title',
+                                offset: {
+                                    x: 0,
+                                    y: -1
+                                },
+                                flipTitle: false,
+                                textAnchor: 'start'
+                            }
+                        })
+                    ]
+                },
 
-            loadFive: false
-                
+                loadFive: false
             })
             return updatedFiveDayWeather;
         }
@@ -167,7 +157,8 @@ var initialWeatherState = {
         stringTime = timevalue[0];
         if (stringTime < 12) {
             stringTime = stringTime.toString() + ' AM';
-        } else {
+        } 
+        else {
             stringTime = (stringTime - 12).toString() + ' PM';
         }
         return stringTime;
