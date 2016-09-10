@@ -1,6 +1,4 @@
 import React from 'react'
-
-import {Chart} from 'react-google-charts'
 var router = require('react-router');
 var Router = router.Router;
 var Route = router.Route;
