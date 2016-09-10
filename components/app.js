@@ -30,5 +30,5 @@ var mapStateToProps = function(state, props){
 var Container = connect(mapStateToProps)(App);
 
 module.exports = Container;
-module.exports = App;
+//module.exports = App;
 
