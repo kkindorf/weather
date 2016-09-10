@@ -1,0 +1,112 @@
+
+body{
+	background: #33004C;
+	font-family: 'Lato', sans-serif;
+}
+
+.current-weather{
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	color: white;
+	font-size: 1.3em;
+	position: relative;
+
+}
+
+.city-temp{
+	display: inline;
+}
+
+.link{
+	color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding-bottom: 2%;
+}
+.temp{
+	color: #d70206;
+	font-weight: bolder;
+	display: inline;
+}
+.humidity{
+	color: #f05b4f;
+    font-weight: bolder;
+    display: inline;
+    padding-left: 15%;
+    padding-right: 2%;
+}
+
+span{
+	color: white !important;
+	font-weight: bolder !important;
+}
+.ct-chart{
+	width: 100%;
+    margin: auto;
+    text-align: center;
+
+}
+.ct-chart-line{
+	padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.pos-relative{
+	width: 85%;
+    margin: 0 auto;
+    padding-top: 7%;
+}
+.ct-axis-title{
+	fill: white;
+}
+
+i{
+	font-size: 90px;
+}
+a{
+	text-decoration: none;
+}
+.ct-label {
+    font-size: 15px;
+}
+#LineChart{
+	height: 0;
+	color: white;
+	text-align: center;
+
+}
+.loader{
+  bottom: 0;
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  color: white;
+}
+
+/*media queries*/
+
+@media screen and (max-width:480px) {
+    .current-weather{
+        width:85%;
+        font-size: 1.1em;
+    }
+    .link {
+        font-size: 1.2em;
+        padding-bottom: 4%;
+    }
+    .humidity {
+        padding-left: 25%;
+    }
+    
+    .pos-relative {
+        width: 95%;
+    }
+    
+   
+}
