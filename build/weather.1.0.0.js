@@ -50,7 +50,7 @@
 	var ReactDOM = __webpack_require__(34);
 	var App = __webpack_require__(172);
 	var HourlyWeatherForeCast = __webpack_require__(206);
-	var FiveDayWeatherForeCast = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/fiveDayForeCast\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var FiveDayWeatherForeCast = __webpack_require__(272);
 	var router = __webpack_require__(207);
 	var Router = router.Router;
 	var Route = router.Route;
@@ -34190,7 +34190,92 @@
 
 
 /***/ },
-/* 272 */,
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var router = __webpack_require__(207);
+	var Router = router.Router;
+	var Route = router.Route;
+	var Link = router.Link;
+	var actions = __webpack_require__(174);
+	var connect = __webpack_require__(177).connect;
+	var ChartistGraph = __webpack_require__(270);
+	
+	var FiveDayWeatherForeCast = _react2.default.createClass({
+	    displayName: 'FiveDayWeatherForeCast',
+	
+	
+	    componentDidMount: function componentDidMount() {
+	        this.props.dispatch(actions.getFiveDayWeather(this.props.data));
+	    },
+	
+	    render: function render() {
+	
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            this.props.loadFive ? _react2.default.createElement(
+	                'div',
+	                { className: 'loadFive' },
+	                _react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'sr-only' },
+	                    'Loading'
+	                )
+	            ) : _react2.default.createElement(
+	                'div',
+	                { className: 'pos-relative' },
+	                _react2.default.createElement(
+	                    Link,
+	                    { to: '/' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'link' },
+	                        'Get Hourly Forecast'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'h4',
+	                    { className: 'title' },
+	                    'Five Day Forecast'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'humidity' },
+	                    'Humidity %'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'temp' },
+	                    'Temp F'
+	                ),
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+	            )
+	        );
+	    }
+	});
+	var mapStateToProps = function mapStateToProps(state, props) {
+	    return {
+	        data: state.fiveDayForeCast,
+	        loadFive: state.loadFive,
+	        options: state.fiveDayOptions
+	
+	    };
+	};
+	var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
+	module.exports = Container;
+	//module.exports = FiveDayWeatherForeCast;
+
+/***/ },
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 

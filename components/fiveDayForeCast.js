@@ -17,26 +17,24 @@ var FiveDayWeatherForeCast = React.createClass({
 
         return(
             <div>
-            
-                <div className="pos-relative">
-                 {this.props.loadFive ?
+            {this.props.loadFive ?
            
-            <div className="loader">
+            <div className="loadFive">
                 <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                 <span className="sr-only">Loading</span>
             </div>
             : 
+                <div className="pos-relative">
                     <Link to={'/'}>
                         <p className="link">Get Hourly Forecast</p>
                     </Link>
-                <div>
+
                 <h4 className="title">Five Day Forecast</h4>
                 <p className="humidity">Humidity %</p>
                 <p className="temp">Temp F</p>
 
 
                 <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
-                </div>
                 </div>}
             
             </div>

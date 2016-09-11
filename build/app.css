@@ -86,6 +86,11 @@ a{
   width: 100px;
   color: white;
 }
+.loadFive{
+  margin: 0 auto;
+  width: 50%;
+  padding-top: 10%;
+}
 
 /*media queries*/
 
