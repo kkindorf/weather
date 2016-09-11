@@ -58,7 +58,7 @@ span{
 }
 
 .ct-grids line {
-  color: #D3D3D3;
+  color: #D3D3D3 !important;
 }
 
 i{

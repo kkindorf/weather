@@ -17,18 +17,18 @@ var FiveDayWeatherForeCast = React.createClass({
 
         return(
             <div>
-            {this.props.loadFive ?
+            
+                <div className="pos-relative">
+                    <Link to={'/'}>
+                        <p className="link">Get Hourly Forecast</p>
+                    </Link>
+                {this.props.loadFive ?
            
             <div className="loader">
                 <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                 <span className="sr-only">Loading</span>
             </div>
             : 
-                <div className="pos-relative">
-                    <Link to={'/'}>
-                        <p className="link">Get Hourly Forecast</p>
-                    </Link>
-
                 <h4 className="title">Five Day Forecast</h4>
                 <p className="humidity">Humidity %</p>
                 <p className="temp">Temp F</p>
