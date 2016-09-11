@@ -34386,31 +34386,7 @@
 	                    right: 20,
 	                    bottom: 5,
 	                    left: 20
-	                },
-	                axisY: {
-	                    onlyInteger: true
-	                },
-	                plugins: [Chartist.plugins.ctAxisTitle({
-	                    axisX: {
-	                        axisTitle: 'Day of Week',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: -15,
-	                            y: 15
-	                        },
-	                        textAnchor: 'end'
-	                    },
-	                    axisY: {
-	                        axisTitle: 'Total',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: 0,
-	                            y: -1
-	                        },
-	                        flipTitle: false,
-	                        textAnchor: 'start'
-	                    }
-	                })]
+	                }
 	            },
 	
 	            loadFive: false
