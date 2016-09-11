@@ -19,11 +19,10 @@ body{
 }
 
 .link{
-	color: white;
+	  color: white;
     text-align: center;
     text-decoration: none;
     font-size: 1.2em;
-    padding-bottom: 2%;
 }
 .temp{
 	color: #d70206;
@@ -36,6 +35,11 @@ body{
     display: inline;
     padding-left: 15%;
     padding-right: 2%;
+}
+.pos-relative{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 3%;
 }
 .pos-relative h4{
   text-align: center;
@@ -55,15 +59,6 @@ span{
 .ct-chart-line{
     overflow:visible !important;
 }
-
-.pos-relative{
-	  width: 85%;
-    margin: 0 auto;
-    padding-top: 5%;
-}
-/*.ct-axis-title{
-	fill: white;
-}*/
 
 i{
 	font-size: 90px;
