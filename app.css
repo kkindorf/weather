@@ -56,11 +56,9 @@ span{
     width: 85%;
     margin: auto;
 }
-.ct-chart-line{
-    overflow:visible !important;
-}
-.ct-grids{
-  fill: white !important;
+
+.ct-grids line {
+  color: #D3D3D3;
 }
 
 i{
