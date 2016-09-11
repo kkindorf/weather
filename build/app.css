@@ -44,22 +44,21 @@ span{
   overflow:visible !important;
 }
 .ct-chart{
+    width: 85%;
     margin: auto;
 }
 .ct-chart-line{
     overflow:visible !important;
 }
 
-
 .pos-relative{
 	  width: 85%;
     margin: 0 auto;
     padding-top: 5%;
-
 }
-.ct-axis-title{
+/*.ct-axis-title{
 	fill: white;
-}
+}*/
 
 i{
 	font-size: 90px;
@@ -89,7 +88,7 @@ a{
 
 /*media queries*/
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:650px) {
     .current-weather{
         width:85%;
         font-size: 1.1em;
@@ -105,6 +104,21 @@ a{
     .pos-relative {
         width: 95%;
     }
+    .ct-chart{
+        width: 95%;
+    }
+    .loader{
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        color: white;
+        padding-top:10%;
+}
     
    
 }
