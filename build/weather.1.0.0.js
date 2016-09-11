@@ -34404,7 +34404,7 @@
 	    var stringDate = '';
 	    var date = new Date(timestamp * 1000),
 	        datevalues = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-	    stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
+	    stringDate = datevalues[1] + '/' + datevalues[2];
 	    return stringDate;
 	};
 	

@@ -95,7 +95,7 @@ var initialWeatherState = {
                 date.getDate()
 
             ];
-        stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
+        stringDate = datevalues[1] + '/' + datevalues[2];
         return stringDate;
     };
 
