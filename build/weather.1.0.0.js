@@ -34362,9 +34362,6 @@
 	                    right: 20,
 	                    bottom: 5,
 	                    left: 20
-	                },
-	                axisY: {
-	                    onlyInteger: true
 	                }
 	
 	            }
@@ -34376,7 +34373,7 @@
 	    }
 	    if (action.type === actions.SHOW_FIVE_DAY_WEATHER) {
 	        var updatedFiveDayWeather = Object.assign({}, state, { fiveDayForeCast: {
-	                labels: [whichDay(setDate(action.fiveDayData.list['0'].dt)), whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
+	                labels: [setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
 	                series: [[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max]]
 	
 	            },
@@ -34386,10 +34383,8 @@
 	                    right: 20,
 	                    bottom: 5,
 	                    left: 20
-	                },
-	                axisY: {
-	                    onlyInteger: true
 	                }
+	
 	            },
 	
 	            loadFive: false
