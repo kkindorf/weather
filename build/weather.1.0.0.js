@@ -34373,7 +34373,7 @@
 	    }
 	    if (action.type === actions.SHOW_FIVE_DAY_WEATHER) {
 	        var updatedFiveDayWeather = Object.assign({}, state, { fiveDayForeCast: {
-	                labels: [whichDay(setDate(action.fiveDayData.list['0'].dt)), whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
+	                labels: [setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
 	                series: [[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max], [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]]
 	
 	            },
@@ -34397,15 +34397,14 @@
 	    return state;
 	};
 	
-	function whichDay(dateString) {
-	    return ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'][new Date(dateString).getDay()];
-	}
+	function whichDay(dateString) {}
 	function setDate(timestamp) {
 	    var stringDate = '';
 	    var date = new Date(timestamp * 1000),
 	        datevalues = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
 	    stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
-	    return stringDate;
+	
+	    return ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'][new Date(stringDate).getDay()];
 	};
 	
 	function setTime(timestamp) {
