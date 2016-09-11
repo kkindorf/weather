@@ -59,6 +59,9 @@ span{
 .ct-chart-line{
     overflow:visible !important;
 }
+.ct-grid ct-vertical{
+  fill: white !important;
+}
 
 i{
 	font-size: 90px;
