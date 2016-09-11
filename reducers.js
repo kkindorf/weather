@@ -55,7 +55,7 @@ var initialWeatherState = {
                                 axisClass: 'ct-axis-title',
                                 offset: {
                                     x: -10,
-                                    y: 15
+                                    y: 0
                                 },
                                 textAnchor: 'end'
                             },
