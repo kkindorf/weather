@@ -90,7 +90,7 @@ var initialWeatherState = {
                     chartPadding: {
                         top: 20,
                         right: 20,
-                        bottom: 20,
+                        bottom: 5,
                         left: 20
                     },
                     axisY: {
@@ -103,7 +103,7 @@ var initialWeatherState = {
                                 axisClass: 'ct-axis-title',
                                 offset: {
                                     x: -15,
-                                    y: 45
+                                    y: 15
                                 },
                                 textAnchor: 'end'
                             },
