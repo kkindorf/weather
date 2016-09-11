@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "mkdir": "mkdir -p build",
-    "clean": "rm -rf build",
-    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
+    "clean": "rm -f build/date.js && rm -rf build",
+
+    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js && cp date.js build/",
     "build:html": "npm run clean:html && cp index.html build/",
     "build:css": "npm run clean:normalize-css && npm run clean:app-css && cp normalize.css build/ && cp app.css build/",
     "clean:normalize-css": "rm -f build/normalize.css",
