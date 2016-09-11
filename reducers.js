@@ -71,6 +71,9 @@ var initialWeatherState = {
                         bottom: 5,
                         left: 20
                     }
+                    axisY: {
+                        onlyInteger: true
+                    }
                 },
 
                 loadFive: false
