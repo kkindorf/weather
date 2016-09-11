@@ -48,10 +48,11 @@ span{
 
 }
 .ct-chart-line{
-	 padding-bottom: 3%;
-    padding-left: 3%;
-    padding-right: 3%;
+
+    overflow:visible !important;
 }
+
+
 .pos-relative{
 	  width: 85%;
     margin: 0 auto;
