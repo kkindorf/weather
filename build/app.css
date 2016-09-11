@@ -39,6 +39,8 @@ body{
 }
 .pos-relative h4{
   text-align: center;
+  color: white;
+  padding-bottom: 0;
 }
 
 span{
