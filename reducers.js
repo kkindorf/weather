@@ -46,6 +46,7 @@ var initialWeatherState = {
                         left: 20
                     }
                     
+                    
                 }
             })
             return updatedHourlyWeather;
@@ -56,7 +57,8 @@ var initialWeatherState = {
         if(action.type === actions.SHOW_FIVE_DAY_WEATHER){
                 var updatedFiveDayWeather = Object.assign({}, state, {fiveDayForeCast: {
                         labels:[setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
-                        series:[[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max]  
+                        series:[[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max],
+                                [action.chartData.list['0'].main.humidity, action.chartData.list['1'].main.humidity,  action.chartData.list['2'].main.humidity, action.chartData.list['3'].main.humidity]  
                        ]
 
                     },
