@@ -28,7 +28,7 @@ var HourlyWeatherForeCast = React.createClass({
                 <p className="humidity">Humidity %</p>
                 <p className="temp">Temp F</p>
                 </div>
-                <ChartistGraph data={this.props.data} type={'Line'} options={this.props.options} />
+                <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
                 </div>}
             
             </div>

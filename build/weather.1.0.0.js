@@ -24069,7 +24069,7 @@
 	                        'Temp F'
 	                    )
 	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Line', options: this.props.options })
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
 	            )
 	        );
 	    }
@@ -34252,7 +34252,7 @@
 	                    { className: 'temp' },
 	                    'Temp F'
 	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Line', options: this.props.options })
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
 	            )
 	        );
 	    }
