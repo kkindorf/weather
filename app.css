@@ -59,7 +59,7 @@ span{
 .ct-chart-line{
     overflow:visible !important;
 }
-.ct-grid ct-vertical{
+.ct-grids{
   fill: white !important;
 }
 
