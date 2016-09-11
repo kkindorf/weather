@@ -34225,10 +34225,11 @@
 	            this.props.loadFive ? _react2.default.createElement(
 	                'div',
 	                { className: 'loadFive' },
+	                _react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
 	                _react2.default.createElement(
 	                    'span',
 	                    { className: 'sr-only' },
-	                    'Loading...'
+	                    'Loading'
 	                )
 	            ) : _react2.default.createElement(
 	                'div',
