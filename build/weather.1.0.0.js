@@ -34360,7 +34360,7 @@
 	                chartPadding: {
 	                    top: 20,
 	                    right: 20,
-	                    bottom: 20,
+	                    bottom: 5,
 	                    left: 20
 	                },
 	                axisY: {
@@ -34371,8 +34371,8 @@
 	                        axisTitle: 'Time of Day',
 	                        axisClass: 'ct-axis-title',
 	                        offset: {
-	                            x: -15,
-	                            y: 45
+	                            x: -10,
+	                            y: 15
 	                        },
 	                        textAnchor: 'end'
 	                    },

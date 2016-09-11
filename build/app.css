@@ -43,21 +43,19 @@ span{
 	font-weight: bolder !important;
 }
 .ct-chart{
-	  width: 100%;
     margin: auto;
-    text-align: center;
+  
 
 }
 .ct-chart-line{
-	padding-bottom: 3%;
+	 padding-bottom: 3%;
     padding-left: 3%;
     padding-right: 3%;
 }
 .pos-relative{
 	  width: 85%;
     margin: 0 auto;
-    padding-top: 7%;
-    margin-bottom: 10%;
+    padding-top: 5%;
 
 }
 .ct-axis-title{
