@@ -41,7 +41,7 @@ body{
     margin: 0 auto;
     padding-top: 3%;
 }
-.pos-relative h4{
+.pos-relative .title{
   text-align: center;
   color: white;
   padding-bottom: 0;

@@ -24056,7 +24056,7 @@
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'h4',
+	          'p',
 	          { className: 'title' },
 	          'Hourly Forecast'
 	        ),
@@ -34244,7 +34244,7 @@
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    'h4',
+	                    'p',
 	                    { className: 'title' },
 	                    'Five Day Forecast'
 	                ),

@@ -24,7 +24,7 @@ var HourlyWeatherForeCast = React.createClass({
                     <Link to={'/fivedayforecast'}>
                         <p className="link">Get Five Day Forecast</p>
                     </Link>
-                <h4 className="title">Hourly Forecast</h4>
+                <p className="title">Hourly Forecast</p>
                 <p className="humidity">Humidity %</p>
                 <p className="temp">Temp F</p>
 
