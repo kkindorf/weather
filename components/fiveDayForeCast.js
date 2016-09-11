@@ -20,8 +20,7 @@ var FiveDayWeatherForeCast = React.createClass({
             {this.props.loadFive ?
            
             <div className="loadFive">
-                <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
-                <span className="sr-only">Loading</span>
+                <span className="sr-only">Loading...</span>
             </div>
             : 
                 <div className="pos-relative">
