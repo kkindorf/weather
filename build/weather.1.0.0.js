@@ -34280,7 +34280,7 @@
 	var applyMiddleware = redux.applyMiddleware;
 	var thunk = __webpack_require__(274).default;
 	
-	var reducers = __webpack_require__(275);
+	var reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var store = createStore(reducers.weatherReducer, applyMiddleware(thunk));
 	module.exports = store;
 
@@ -34311,117 +34311,6 @@
 	thunk.withExtraArgument = createThunkMiddleware;
 	
 	exports['default'] = thunk;
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var actions = __webpack_require__(174);
-	
-	var initialWeatherState = {
-	    currentCityName: '',
-	    currentTemp: '',
-	    currentDescription: '',
-	    id: '',
-	    threeHourForeCast: {},
-	    threeHourOptions: {},
-	    fiveDayForeCast: [],
-	    fiveDayOption: {},
-	    loading: true,
-	    loadFive: true
-	
-	};
-	
-	var weatherReducer = function weatherReducer(state, action) {
-	    state = state || initialWeatherState;
-	    if (action.type === actions.SHOW_CURRENT_WEATHER) {
-	        var updatedCurrentWeather = Object.assign({}, state, {
-	            currentCityName: action.city,
-	            currentTemp: Math.round(action.temp) + " F ",
-	            currentDescription: action.description,
-	            id: action.id,
-	            loading: false
-	        });
-	
-	        return updatedCurrentWeather;
-	    }
-	    if (action.type === actions.SHOW_CURRENT_WEATHER_ERROR) {
-	        throw new Error('The current weather conditions could not be retrieved!');
-	    }
-	    if (action.type === actions.SHOW_HOURLY_WEATHER) {
-	        var updatedHourlyWeather = Object.assign({}, state, {
-	            threeHourForeCast: {
-	                labels: [setTime(action.chartData.list['0'].dt), setTime(action.chartData.list[1].dt), setTime(action.chartData.list[2].dt), setTime(action.chartData.list[3].dt)],
-	                series: [[action.chartData.list['0'].main.temp_max, action.chartData.list['1'].main.temp_max, action.chartData.list['2'].main.temp_max, action.chartData.list['3'].main.temp_max], [action.chartData.list['0'].main.humidity, action.chartData.list['1'].main.humidity, action.chartData.list['2'].main.humidity, action.chartData.list['3'].main.humidity]]
-	            },
-	            threeHourOptions: {
-	                chartPadding: {
-	                    top: 20,
-	                    right: 20,
-	                    bottom: 5,
-	                    left: 20
-	                }
-	
-	            }
-	        });
-	        return updatedHourlyWeather;
-	    }
-	    if (action.type === actions.SHOW_HOURLY_WEATHER_ERROR) {
-	        throw new Error('The hourly weather forecast could not be retrieved!');
-	    }
-	    if (action.type === actions.SHOW_FIVE_DAY_WEATHER) {
-	        var updatedFiveDayWeather = Object.assign({}, state, { fiveDayForeCast: {
-	                labels: [setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
-	                series: [[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max], [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]]
-	
-	            },
-	            fiveDayOptions: {
-	                chartPadding: {
-	                    top: 20,
-	                    right: 20,
-	                    bottom: 5,
-	                    left: 20
-	                }
-	
-	            },
-	
-	            loadFive: false
-	        });
-	        return updatedFiveDayWeather;
-	    }
-	    if (action.type === actions.SHOW_FIVE_DAY_WEATHER_ERROR) {
-	        throw new Error('The Five Day Weather Forecast could not be retrieved!');
-	    }
-	    return state;
-	};
-	
-	function whichDay(dateString) {
-	    return ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'][new Date(dateString).getDay()];
-	}
-	function setDate(timestamp) {
-	    var stringDate = '';
-	    var date = new Date(timestamp * 1000),
-	        datevalues = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-	    stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
-	    return stringDate;
-	};
-	
-	function setTime(timestamp) {
-	    var stringTime = '';
-	    var time = new Date(timestamp * 1000),
-	        timevalue = [time.getHours()];
-	    stringTime = timevalue[0];
-	    if (stringTime < 12) {
-	        stringTime = stringTime.toString() + ' AM';
-	    } else {
-	        stringTime = (stringTime - 12).toString() + ' PM';
-	    }
-	    return stringTime;
-	}
-	
-	exports.weatherReducer = weatherReducer;
 
 /***/ }
 /******/ ]);
