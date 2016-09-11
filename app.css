@@ -37,6 +37,9 @@ body{
     padding-left: 15%;
     padding-right: 2%;
 }
+.pos-relative h4{
+  text-align: center;
+}
 
 span{
 	color: white !important;

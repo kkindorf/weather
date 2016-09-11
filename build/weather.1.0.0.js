@@ -24033,55 +24033,56 @@
 	var ChartistGraph = __webpack_require__(270);
 	
 	var HourlyWeatherForeCast = _react2.default.createClass({
-	    displayName: 'HourlyWeatherForeCast',
+	  displayName: 'HourlyWeatherForeCast',
 	
-	    componentDidMount: function componentDidMount() {
-	        this.props.dispatch(actions.getHourlyWeather(this.props.data));
-	    },
-	    render: function render() {
+	  componentDidMount: function componentDidMount() {
+	    this.props.dispatch(actions.getHourlyWeather(this.props.data));
+	  },
+	  render: function render() {
 	
-	        return _react2.default.createElement(
-	            'div',
-	            null,
-	            this.props.loading ? '' : _react2.default.createElement(
-	                'div',
-	                { className: 'pos-relative' },
-	                _react2.default.createElement(
-	                    Link,
-	                    { to: '/fivedayforecast' },
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'link' },
-	                        'Get Five Day Forecast'
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'pos-abs' },
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'humidity' },
-	                        'Humidity %'
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'temp' },
-	                        'Temp F'
-	                    )
-	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
-	            )
-	        );
-	    }
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      this.props.loading ? '' : _react2.default.createElement(
+	        'div',
+	        { className: 'pos-relative' },
+	        _react2.default.createElement(
+	          Link,
+	          { to: '/fivedayforecast' },
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'link' },
+	            'Get Five Day Forecast'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          { className: 'title' },
+	          'Five Day Forecast'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'humidity' },
+	          'Humidity %'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'temp' },
+	          'Temp F'
+	        ),
+	        _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+	      )
+	    );
+	  }
 	});
 	
 	var mapStateToProps = function mapStateToProps(state, props) {
-	    return {
-	        data: state.threeHourForeCast,
-	        loading: state.loading,
-	        options: state.threeHourOptions
+	  return {
+	    data: state.threeHourForeCast,
+	    loading: state.loading,
+	    options: state.threeHourOptions
 	
-	    };
+	  };
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
 	module.exports = Container;
@@ -34241,6 +34242,11 @@
 	                        { className: 'link' },
 	                        'Get Hourly Forecast'
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'h4',
+	                    { className: 'title' },
+	                    'Five Day Forecast'
 	                ),
 	                _react2.default.createElement(
 	                    'p',
