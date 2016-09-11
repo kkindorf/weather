@@ -41,6 +41,7 @@ body{
 span{
 	color: white !important;
 	font-weight: bolder !important;
+  overflow:visible !important;
 }
 .ct-chart{
     margin: auto;
