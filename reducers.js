@@ -47,30 +47,8 @@ var initialWeatherState = {
                     },
                     axisY: {
                         onlyInteger: true
-                    },
-                    plugins: [
-                        Chartist.plugins.ctAxisTitle({
-                            axisX: {
-                                axisTitle: 'Time of Day',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: -10,
-                                    y: 0
-                                },
-                                textAnchor: 'end'
-                            },
-                            axisY: {
-                                axisTitle: 'Total',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: 0,
-                                    y: -1
-                                },
-                                flipTitle: false,
-                                textAnchor: 'start'
-                            }
-                        })
-                    ]
+                    }
+                    
                 }
             })
             return updatedHourlyWeather;
