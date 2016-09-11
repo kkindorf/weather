@@ -70,7 +70,7 @@ var initialWeatherState = {
                         right: 20,
                         bottom: 5,
                         left: 20
-                    }
+                    },
                     axisY: {
                         onlyInteger: true
                     }
