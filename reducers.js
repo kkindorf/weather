@@ -86,7 +86,7 @@ var initialWeatherState = {
         return ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
         [new Date(dateString).getDay()];
     }
-    function setDate(timestamp) {
+    /*function setDate(timestamp) {
         var stringDate = '';
         var date = new Date(timestamp * 1000),
             datevalues = [
@@ -96,7 +96,7 @@ var initialWeatherState = {
             ];
         stringDate = datevalues[0];
         return stringDate;
-    };
+    };*/
 
     function setTime(timestamp) {
         var stringTime = '';
