@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "4.4.7"
+  },
   "scripts": {
+    "start": "node server.js",
     "mkdir": "mkdir -p build",
     "clean": "rm -rf build",
     "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
