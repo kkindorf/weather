@@ -21624,7 +21624,7 @@
 	            var lon = position.coords.longitude;
 	
 	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var currentURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	            var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
 	            return fetch(currentURL).then(function (response) {
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
@@ -21676,7 +21676,7 @@
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
 	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var foreCastURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	            var foreCastURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
 	            console.log(foreCastURL);
 	            return fetch(foreCastURL).then(function (response) {
 	                console.log(response); //response
@@ -21728,7 +21728,7 @@
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
 	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var fiveDayURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
+	            var fiveDayURL = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
 	            return fetch(fiveDayURL).then(function (response) {
 	                console.log(response); //response
 	                if (response.state < 200 || response.status >= 300) {
