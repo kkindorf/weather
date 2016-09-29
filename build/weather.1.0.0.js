@@ -21624,7 +21624,7 @@
 	        function locationSuccess(position) {
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
-	            var url = rootUrl + '/currentWeather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	            var url = rootUrl + '/currentWeather?lat=' + lat + '&lon=' + lon;
 	            return fetch(url).then(function (response) {
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);

@@ -23,7 +23,7 @@ app.get('/status', function(req, res){
 })
 
 app.get('/currentWeather', function(req, res){
-	console.log(req.body)
+	console.log(req)
 	var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
 	var currentURL = 'http://api.openweathermap.org/data/2.5/weather?';
 	var url = currentURL + apiKey;
