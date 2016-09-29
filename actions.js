@@ -62,7 +62,8 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
     }
 };
 
-
+var rootUrl = 'http://localhost:3000';
+var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
 var getCurrentWeather = function(city, temp, description, id) {
     return function(dispatch){
         if (navigator.geolocation) {
@@ -74,10 +75,8 @@ var getCurrentWeather = function(city, temp, description, id) {
         function locationSuccess(position) {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
-
-            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-                    var currentURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-                    return fetch(currentURL)
+            var url = rootUrl+'/currentWeather?lat='+lat+'&lon='+lon+'&units=imperial&APPID=' + apiKey;
+                    return fetch(url)
                 .then(function(response) {
                     if (response.state < 200 || response.status >= 300) {
                         var error = new Error(response.statusText)
