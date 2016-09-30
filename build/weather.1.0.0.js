@@ -21613,7 +21613,6 @@
 	};
 	
 	var rootUrl = 'http://localhost:3000';
-	var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
@@ -21624,15 +21623,18 @@
 	        function locationSuccess(position) {
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
-	            var url = rootUrl + '/currentWeather?lat=' + lat + '&lon=' + lon;
+	            var url = rootUrl + '/currentWeather/' + lat + '/' + lon;
 	            return fetch(url).then(function (response) {
+	                console.log(response);
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
 	                    error.response = response;
 	                    throw error;
 	                }
+	
 	                return response.json();
 	            }).then(function (currentWeatherData) {
+	                console.log(currentWeatherData);
 	                var city = currentWeatherData.name;
 	                var temp = currentWeatherData.main.temp;
 	                var description = currentWeatherData.weather['0'].description;
@@ -21675,10 +21677,12 @@
 	        function locationSuccess(position) {
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
-	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var foreCastURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-	            console.log(foreCastURL);
-	            return fetch(foreCastURL).then(function (response) {
+	
+	            var url = rootUrl + '/hourlyWeather';
+	            return fetch(url)
+	            //var foreCastURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	            //console.log(foreCastURL)
+	            .then(function (response) {
 	                console.log(response); //response
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
@@ -21688,7 +21692,6 @@
 	                return response.json();
 	            }).then(function (data) {
 	                console.log(data);
-	
 	                return dispatch(showHourlyWeather(data));
 	            }).catch(function (error) {
 	                return dispatch(showHourlyWeatherError(data, error));

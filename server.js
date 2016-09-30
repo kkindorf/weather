@@ -4,14 +4,16 @@ var app = express();
 var bodyParser = require('body-parser');
 var http = require('http');
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
-
+});*/
+var lat;
+var lon;
+var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
 app.use(bodyParser.json());
 app.use(express.static('build'));
 
@@ -22,16 +24,23 @@ app.get('/status', function(req, res){
 	})
 })
 
-app.get('/currentWeather', function(req, res){
-	console.log(req)
-	var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	var currentURL = 'http://api.openweathermap.org/data/2.5/weather?';
-	var url = currentURL + apiKey;
+app.get('/currentWeather/:lat/:lon', function(req, res){
+	lat = req.params.lat
+	lon = req.params.lon
+	var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=imperial&APPID='+apiKey;
+	var url = currentURL;
 	http.get(url, function(resp){
        resp.pipe(res);
    })
 });
 
+app.get('/hourlyWeather', function(req, res){
+	
+	var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	http.get(url, function(resp){
+		resp.pipe(res)
+	})
+})
 
 
 app.get('/')
