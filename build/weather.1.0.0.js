@@ -21492,7 +21492,7 @@
 	var Container = connect(mapStateToProps)(App);
 	
 	module.exports = Container;
-	//module.exports = App;
+	module.exports = App;
 
 /***/ },
 /* 173 */
