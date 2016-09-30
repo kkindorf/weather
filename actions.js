@@ -1,4 +1,3 @@
-//style={image.url ? display:block: display:none;}
 var fetch = require('isomorphic-fetch');
 
 var SHOW_CURRENT_WEATHER = 'SHOW_CURRENT_WEATHER';
@@ -30,8 +29,6 @@ var showHourlyWeather = function(chartData) {
     return {
         type: SHOW_HOURLY_WEATHER,
         chartData: chartData
-        
-        
 
     }
 };
@@ -62,7 +59,7 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
     }
 };
 
-var rootUrl = 'https://localhost:3000';
+var rootUrl = 'http://localhost:3000';
 var getCurrentWeather = function(city, temp, description, id) {
     return function(dispatch){
         if (navigator.geolocation) {
@@ -121,11 +118,11 @@ var getCurrentWeather = function(city, temp, description, id) {
 }
 
 var getHourlyWeather = function(data) {
-        return function(dispatch){       
+    return function(dispatch){       
             var url = rootUrl+'/hourlyWeather';
             return fetch(url)
         .then(function(response) {
-            console.log(response) //response
+            console.log(response) 
             if (response.state < 200 || response.status >= 300) {
                 var error = new Error(response.statusText)
                 error.response = response
@@ -138,7 +135,7 @@ var getHourlyWeather = function(data) {
         }).catch(function(error){
             return dispatch(showHourlyWeatherError(data, error))
         })
-    
+
     }
 }
 
@@ -156,9 +153,6 @@ var getFiveDayWeather = function(data) {
             return response.json()
         }).then(function(data) {
             console.log(data)
-            
-            
-
             return dispatch(showFiveDayWeather(data))
         }).catch(function(error){
             return dispatch(showFiveDayWeatherError(data, error))

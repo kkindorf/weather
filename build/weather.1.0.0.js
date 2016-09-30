@@ -21612,7 +21612,7 @@
 	    };
 	};
 	
-	var rootUrl = 'https://localhost:3000';
+	var rootUrl = 'http://localhost:3000';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
