@@ -75,7 +75,6 @@ var getCurrentWeather = function(city, temp, description, id) {
                     return fetch(url)
 
                 .then(function(response) {
-                    console.log(response)
                     if (response.state < 200 || response.status >= 300) {
                         var error = new Error(response.statusText)
                         error.response = response
@@ -83,7 +82,6 @@ var getCurrentWeather = function(city, temp, description, id) {
                     }
                     return response.json()
                 }).then(function(currentWeatherData) {
-                    console.log(currentWeatherData)
                     var city = currentWeatherData.name;
                     var temp = currentWeatherData.main.temp;
                     var description = currentWeatherData.weather['0'].description;
@@ -121,8 +119,7 @@ var getHourlyWeather = function(data) {
     return function(dispatch){       
             var url = rootUrl+'/hourlyWeather';
             return fetch(url)
-        .then(function(response) {
-            console.log(response) 
+        .then(function(response) { 
             if (response.state < 200 || response.status >= 300) {
                 var error = new Error(response.statusText)
                 error.response = response
@@ -130,7 +127,6 @@ var getHourlyWeather = function(data) {
             }
             return response.json()
         }).then(function(data) {
-            console.log(data)
             return dispatch(showHourlyWeather(data))
         }).catch(function(error){
             return dispatch(showHourlyWeatherError(data, error))
@@ -144,7 +140,6 @@ var getFiveDayWeather = function(data) {
          var url = rootUrl+'/fiveDay';
             return fetch(url)
         .then(function(response) {
-            console.log(response) //response
             if (response.state < 200 || response.status >= 300) {
                 var error = new Error(response.statusText)
                 error.response = response
@@ -152,7 +147,6 @@ var getFiveDayWeather = function(data) {
             }
             return response.json()
         }).then(function(data) {
-            console.log(data)
             return dispatch(showFiveDayWeather(data))
         }).catch(function(error){
             return dispatch(showFiveDayWeatherError(data, error))

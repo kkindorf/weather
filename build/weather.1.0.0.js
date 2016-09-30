@@ -21624,7 +21624,6 @@
 	            var lon = position.coords.longitude;
 	            var url = rootUrl + '/currentWeather/' + lat + '/' + lon;
 	            return fetch(url).then(function (response) {
-	                console.log(response);
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
 	                    error.response = response;
@@ -21632,7 +21631,6 @@
 	                }
 	                return response.json();
 	            }).then(function (currentWeatherData) {
-	                console.log(currentWeatherData);
 	                var city = currentWeatherData.name;
 	                var temp = currentWeatherData.main.temp;
 	                var description = currentWeatherData.weather['0'].description;
@@ -21668,7 +21666,6 @@
 	    return function (dispatch) {
 	        var url = rootUrl + '/hourlyWeather';
 	        return fetch(url).then(function (response) {
-	            console.log(response);
 	            if (response.state < 200 || response.status >= 300) {
 	                var error = new Error(response.statusText);
 	                error.response = response;
@@ -21676,7 +21673,6 @@
 	            }
 	            return response.json();
 	        }).then(function (data) {
-	            console.log(data);
 	            return dispatch(showHourlyWeather(data));
 	        }).catch(function (error) {
 	            return dispatch(showHourlyWeatherError(data, error));
@@ -21688,7 +21684,6 @@
 	    return function (dispatch) {
 	        var url = rootUrl + '/fiveDay';
 	        return fetch(url).then(function (response) {
-	            console.log(response); //response
 	            if (response.state < 200 || response.status >= 300) {
 	                var error = new Error(response.statusText);
 	                error.response = response;
@@ -21696,7 +21691,6 @@
 	            }
 	            return response.json();
 	        }).then(function (data) {
-	            console.log(data);
 	            return dispatch(showFiveDayWeather(data));
 	        }).catch(function (error) {
 	            return dispatch(showFiveDayWeatherError(data, error));
