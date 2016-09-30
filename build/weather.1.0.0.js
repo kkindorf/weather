@@ -21611,7 +21611,7 @@
 	    };
 	};
 	
-	var rootUrl = 'http://hidden-woodland-89462.herokuapp.com/';
+	var rootUrl = 'http://localhost:3000';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
@@ -24019,7 +24019,9 @@
 	    };
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
+	
 	module.exports = Container;
+	
 	//module.exports = HourlyWeatherForeCast;
 
 /***/ },

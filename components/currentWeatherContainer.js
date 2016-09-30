@@ -30,9 +30,5 @@ var mapStateToProps = function(state, props){
     }
 }
 var Container = connect(mapStateToProps)(CurrentWeatherContainer);
-<<<<<<< HEAD
-//module.exports = Container;
-=======
 module.exports = Container;
->>>>>>> features
 //module.exports = CurrentWeatherContainer;
