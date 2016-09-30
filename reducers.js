@@ -42,35 +42,10 @@ var initialWeatherState = {
                     chartPadding: {
                         top: 20,
                         right: 20,
-                        bottom: 20,
+                        bottom: 5,
                         left: 20
-                    },
-                    axisY: {
-                        onlyInteger: true
-                    },
-                    plugins: [
-                        Chartist.plugins.ctAxisTitle({
-                            axisX: {
-                                axisTitle: 'Time of Day',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: -15,
-                                    y: 45
-                                },
-                                textAnchor: 'end'
-                            },
-                            axisY: {
-                                axisTitle: 'Total',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: 0,
-                                    y: -1
-                                },
-                                flipTitle: false,
-                                textAnchor: 'start'
-                            }
-                        })
-                    ]
+                    }
+                    
                 }
             })
             return updatedHourlyWeather;
@@ -80,9 +55,10 @@ var initialWeatherState = {
         }
         if(action.type === actions.SHOW_FIVE_DAY_WEATHER){
                 var updatedFiveDayWeather = Object.assign({}, state, {fiveDayForeCast: {
-                        labels:[whichDay(setDate(action.fiveDayData.list['0'].dt)),whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
+                        labels:[setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
                         series:[[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max],
-                        [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]   
+                                [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]
+
                        ]
 
                     },
@@ -90,35 +66,10 @@ var initialWeatherState = {
                     chartPadding: {
                         top: 20,
                         right: 20,
-                        bottom: 20,
+                        bottom: 5,
                         left: 20
-                    },
-                    axisY: {
-                        onlyInteger: true
-                    },
-                    plugins: [
-                        Chartist.plugins.ctAxisTitle({
-                            axisX: {
-                                axisTitle: 'Day of Week',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: -15,
-                                    y: 45
-                                },
-                                textAnchor: 'end'
-                            },
-                            axisY: {
-                                axisTitle: 'Total',
-                                axisClass: 'ct-axis-title',
-                                offset: {
-                                    x: 0,
-                                    y: -1
-                                },
-                                flipTitle: false,
-                                textAnchor: 'start'
-                            }
-                        })
-                    ]
+                    }
+                    
                 },
 
                 loadFive: false
@@ -141,10 +92,10 @@ var initialWeatherState = {
             datevalues = [
                 date.getFullYear(),
                 date.getMonth()+1,
-                date.getDate(),
+                date.getDate()
 
             ];
-        stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
+        stringDate = datevalues[1] + '/' + datevalues[2];
         return stringDate;
     };
 

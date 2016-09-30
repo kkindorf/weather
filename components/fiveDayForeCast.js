@@ -19,7 +19,7 @@ var FiveDayWeatherForeCast = React.createClass({
             <div>
             {this.props.loadFive ?
            
-            <div className="loader">
+            <div className="loadFive">
                 <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                 <span className="sr-only">Loading</span>
             </div>
@@ -28,11 +28,13 @@ var FiveDayWeatherForeCast = React.createClass({
                     <Link to={'/'}>
                         <p className="link">Get Hourly Forecast</p>
                     </Link>
-                
+
+                <p className="title">Five Day Forecast</p>
                 <p className="humidity">Humidity %</p>
                 <p className="temp">Temp F</p>
 
-                <ChartistGraph data={this.props.data} type={'Line'} options={this.props.options} />
+
+                <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
                 </div>}
             
             </div>
@@ -49,5 +51,9 @@ var mapStateToProps = function(state, props){
     }
 }
 var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
+<<<<<<< HEAD
 //module.exports = Container;
+=======
+module.exports = Container;
+>>>>>>> features
 //module.exports = FiveDayWeatherForeCast;

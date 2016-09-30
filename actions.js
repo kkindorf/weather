@@ -1,4 +1,3 @@
-//style={image.url ? display:block: display:none;}
 var fetch = require('isomorphic-fetch');
 
 var SHOW_CURRENT_WEATHER = 'SHOW_CURRENT_WEATHER';
@@ -30,8 +29,6 @@ var showHourlyWeather = function(chartData) {
     return {
         type: SHOW_HOURLY_WEATHER,
         chartData: chartData
-        
-        
 
     }
 };
@@ -62,7 +59,7 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
     }
 };
 
-
+var rootUrl = 'http://hidden-woodland-89462.herokuapp.com/';
 var getCurrentWeather = function(city, temp, description, id) {
     return function(dispatch){
         if (navigator.geolocation) {
@@ -74,11 +71,17 @@ var getCurrentWeather = function(city, temp, description, id) {
         function locationSuccess(position) {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
+            var url = rootUrl+'/currentWeather/'+lat+'/'+lon;
+                    return fetch(url)
 
+<<<<<<< HEAD
             var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
                     var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
                     return fetch(currentURL)
+=======
+>>>>>>> features
                 .then(function(response) {
+                    console.log(response)
                     if (response.state < 200 || response.status >= 300) {
                         var error = new Error(response.statusText)
                         error.response = response
@@ -86,6 +89,7 @@ var getCurrentWeather = function(city, temp, description, id) {
                     }
                     return response.json()
                 }).then(function(currentWeatherData) {
+                    console.log(currentWeatherData)
                     var city = currentWeatherData.name;
                     var temp = currentWeatherData.main.temp;
                     var description = currentWeatherData.weather['0'].description;
@@ -119,9 +123,8 @@ var getCurrentWeather = function(city, temp, description, id) {
     }
 }
 
-            
-
 var getHourlyWeather = function(data) {
+<<<<<<< HEAD
     return function(dispatch){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
@@ -167,18 +170,32 @@ var getHourlyWeather = function(data) {
                 case error.UNKNOWN_ERROR:
                     showError('An unknown error occured!');
                     break;
+=======
+    return function(dispatch){       
+            var url = rootUrl+'/hourlyWeather';
+            return fetch(url)
+        .then(function(response) {
+            console.log(response) 
+            if (response.state < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+>>>>>>> features
             }
+            return response.json()
+        }).then(function(data) {
+            console.log(data)
+            return dispatch(showHourlyWeather(data))
+        }).catch(function(error){
+            return dispatch(showHourlyWeatherError(data, error))
+        })
 
-        }
-
-        function showError(msg){
-            alert(msg);
-        }
-   }
+    }
 }
 
 var getFiveDayWeather = function(data) {
     return function(dispatch){
+<<<<<<< HEAD
          if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
         }
@@ -224,21 +241,27 @@ var getFiveDayWeather = function(data) {
                 case error.UNKNOWN_ERROR:
                     showError('An unknown error occured!');
                     break;
+=======
+         var url = rootUrl+'/fiveDay';
+            return fetch(url)
+        .then(function(response) {
+            console.log(response) //response
+            if (response.state < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+>>>>>>> features
             }
-
-        }
-
-        function showError(msg){
-            alert(msg);
-        }
-
+            return response.json()
+        }).then(function(data) {
+            console.log(data)
+            return dispatch(showFiveDayWeather(data))
+        }).catch(function(error){
+            return dispatch(showFiveDayWeatherError(data, error))
+        })
+    
    }
 }
-
-    
-
-
-
 
 exports.getCurrentWeather = getCurrentWeather;
 exports.getHourlyWeather = getHourlyWeather;

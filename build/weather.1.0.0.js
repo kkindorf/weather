@@ -21492,7 +21492,7 @@
 	var Container = connect(mapStateToProps)(App);
 	
 	module.exports = Container;
-	module.exports = App;
+	//module.exports = App;
 
 /***/ },
 /* 173 */
@@ -21543,7 +21543,11 @@
 		};
 	};
 	var Container = connect(mapStateToProps)(CurrentWeatherContainer);
+<<<<<<< HEAD
 	//module.exports = Container;
+=======
+	module.exports = Container;
+>>>>>>> features
 	//module.exports = CurrentWeatherContainer;
 
 /***/ },
@@ -21552,7 +21556,6 @@
 
 	'use strict';
 	
-	//style={image.url ? display:block: display:none;}
 	var fetch = __webpack_require__(175);
 	
 	var SHOW_CURRENT_WEATHER = 'SHOW_CURRENT_WEATHER';
@@ -21612,6 +21615,7 @@
 	    };
 	};
 	
+	var rootUrl = 'http://hidden-woodland-89462.herokuapp.com/';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
@@ -21622,10 +21626,16 @@
 	        function locationSuccess(position) {
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
+<<<<<<< HEAD
 	
 	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
 	            var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
 	            return fetch(currentURL).then(function (response) {
+=======
+	            var url = rootUrl + '/currentWeather/' + lat + '/' + lon;
+	            return fetch(url).then(function (response) {
+	                console.log(response);
+>>>>>>> features
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
 	                    error.response = response;
@@ -21633,6 +21643,10 @@
 	                }
 	                return response.json();
 	            }).then(function (currentWeatherData) {
+<<<<<<< HEAD
+=======
+	                console.log(currentWeatherData);
+>>>>>>> features
 	                var city = currentWeatherData.name;
 	                var temp = currentWeatherData.main.temp;
 	                var description = currentWeatherData.weather['0'].description;
@@ -21666,6 +21680,7 @@
 	
 	var getHourlyWeather = function getHourlyWeather(data) {
 	    return function (dispatch) {
+<<<<<<< HEAD
 	        if (navigator.geolocation) {
 	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	        } else {
@@ -21708,17 +21723,29 @@
 	                case error.UNKNOWN_ERROR:
 	                    showError('An unknown error occured!');
 	                    break;
+=======
+	        var url = rootUrl + '/hourlyWeather';
+	        return fetch(url).then(function (response) {
+	            console.log(response);
+	            if (response.state < 200 || response.status >= 300) {
+	                var error = new Error(response.statusText);
+	                error.response = response;
+	                throw error;
+>>>>>>> features
 	            }
-	        }
-	
-	        function showError(msg) {
-	            alert(msg);
-	        }
+	            return response.json();
+	        }).then(function (data) {
+	            console.log(data);
+	            return dispatch(showHourlyWeather(data));
+	        }).catch(function (error) {
+	            return dispatch(showHourlyWeatherError(data, error));
+	        });
 	    };
 	};
 	
 	var getFiveDayWeather = function getFiveDayWeather(data) {
 	    return function (dispatch) {
+<<<<<<< HEAD
 	        if (navigator.geolocation) {
 	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	        } else {
@@ -21760,12 +21787,23 @@
 	                case error.UNKNOWN_ERROR:
 	                    showError('An unknown error occured!');
 	                    break;
+=======
+	        var url = rootUrl + '/fiveDay';
+	        return fetch(url).then(function (response) {
+	            console.log(response); //response
+	            if (response.state < 200 || response.status >= 300) {
+	                var error = new Error(response.statusText);
+	                error.response = response;
+	                throw error;
+>>>>>>> features
 	            }
-	        }
-	
-	        function showError(msg) {
-	            alert(msg);
-	        }
+	            return response.json();
+	        }).then(function (data) {
+	            console.log(data);
+	            return dispatch(showFiveDayWeather(data));
+	        }).catch(function (error) {
+	            return dispatch(showFiveDayWeatherError(data, error));
+	        });
 	    };
 	};
 	
@@ -23341,6 +23379,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+<<<<<<< HEAD
 	
 	var _ponyfill = __webpack_require__(193);
 	
@@ -23356,6 +23395,23 @@
 		root = window;
 	}
 	
+=======
+	
+	var _ponyfill = __webpack_require__(193);
+	
+	var _ponyfill2 = _interopRequireDefault(_ponyfill);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var root = undefined; /* global window */
+	
+	if (typeof global !== 'undefined') {
+		root = global;
+	} else if (typeof window !== 'undefined') {
+		root = window;
+	}
+	
+>>>>>>> features
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
@@ -23770,6 +23826,7 @@
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
 	 * @example
+<<<<<<< HEAD
 	 *
 	 * function Foo() {
 	 *   this.a = 1;
@@ -23781,6 +23838,19 @@
 	 * _.isPlainObject([1, 2, 3]);
 	 * // => false
 	 *
+=======
+	 *
+	 * function Foo() {
+	 *   this.a = 1;
+	 * }
+	 *
+	 * _.isPlainObject(new Foo);
+	 * // => false
+	 *
+	 * _.isPlainObject([1, 2, 3]);
+	 * // => false
+	 *
+>>>>>>> features
 	 * _.isPlainObject({ 'x': 0, 'y': 0 });
 	 * // => true
 	 *
@@ -23870,6 +23940,7 @@
 	/**
 	 * Checks if `value` is object-like. A value is object-like if it's not `null`
 	 * and has a `typeof` result of "object".
+<<<<<<< HEAD
 	 *
 	 * @static
 	 * @memberOf _
@@ -23885,6 +23956,23 @@
 	 * _.isObjectLike([1, 2, 3]);
 	 * // => true
 	 *
+=======
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+>>>>>>> features
 	 * _.isObjectLike(_.noop);
 	 * // => false
 	 *
@@ -24017,6 +24105,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< HEAD
 	
 	var _react = __webpack_require__(1);
 	
@@ -24085,6 +24174,76 @@
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
 	//module.exports = Container;
+=======
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var router = __webpack_require__(207);
+	var Router = router.Router;
+	var Route = router.Route;
+	var Link = router.Link;
+	var actions = __webpack_require__(174);
+	var connect = __webpack_require__(177).connect;
+	var ChartistGraph = __webpack_require__(270);
+	
+	var HourlyWeatherForeCast = _react2.default.createClass({
+	    displayName: 'HourlyWeatherForeCast',
+	
+	    componentDidMount: function componentDidMount() {
+	        this.props.dispatch(actions.getHourlyWeather(this.props.data));
+	    },
+	    render: function render() {
+	
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            this.props.loading ? '' : _react2.default.createElement(
+	                'div',
+	                { className: 'pos-relative' },
+	                _react2.default.createElement(
+	                    Link,
+	                    { to: '/fivedayforecast' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'link' },
+	                        'Get Five Day Forecast'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'title' },
+	                    'Hourly Forecast'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'humidity' },
+	                    'Humidity %'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'temp' },
+	                    'Temp F'
+	                ),
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+	            )
+	        );
+	    }
+	});
+	
+	var mapStateToProps = function mapStateToProps(state, props) {
+	    return {
+	        data: state.threeHourForeCast,
+	        loading: state.loading,
+	        options: state.threeHourOptions
+	    };
+	};
+	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
+	module.exports = Container;
+>>>>>>> features
 	//module.exports = HourlyWeatherForeCast;
 
 /***/ },
@@ -34223,7 +34382,7 @@
 	            null,
 	            this.props.loadFive ? _react2.default.createElement(
 	                'div',
-	                { className: 'loader' },
+	                { className: 'loadFive' },
 	                _react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
 	                _react2.default.createElement(
 	                    'span',
@@ -34244,6 +34403,11 @@
 	                ),
 	                _react2.default.createElement(
 	                    'p',
+	                    { className: 'title' },
+	                    'Five Day Forecast'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
 	                    { className: 'humidity' },
 	                    'Humidity %'
 	                ),
@@ -34252,7 +34416,7 @@
 	                    { className: 'temp' },
 	                    'Temp F'
 	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Line', options: this.props.options })
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
 	            )
 	        );
 	    }
@@ -34266,7 +34430,11 @@
 	    };
 	};
 	var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
+<<<<<<< HEAD
 	//module.exports = Container;
+=======
+	module.exports = Container;
+>>>>>>> features
 	//module.exports = FiveDayWeatherForeCast;
 
 /***/ },
@@ -34360,33 +34528,10 @@
 	                chartPadding: {
 	                    top: 20,
 	                    right: 20,
-	                    bottom: 20,
+	                    bottom: 5,
 	                    left: 20
-	                },
-	                axisY: {
-	                    onlyInteger: true
-	                },
-	                plugins: [Chartist.plugins.ctAxisTitle({
-	                    axisX: {
-	                        axisTitle: 'Time of Day',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: -15,
-	                            y: 45
-	                        },
-	                        textAnchor: 'end'
-	                    },
-	                    axisY: {
-	                        axisTitle: 'Total',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: 0,
-	                            y: -1
-	                        },
-	                        flipTitle: false,
-	                        textAnchor: 'start'
-	                    }
-	                })]
+	                }
+	
 	            }
 	        });
 	        return updatedHourlyWeather;
@@ -34396,7 +34541,7 @@
 	    }
 	    if (action.type === actions.SHOW_FIVE_DAY_WEATHER) {
 	        var updatedFiveDayWeather = Object.assign({}, state, { fiveDayForeCast: {
-	                labels: [whichDay(setDate(action.fiveDayData.list['0'].dt)), whichDay(setDate(action.fiveDayData.list[1].dt)), whichDay(setDate(action.fiveDayData.list[2].dt)), whichDay(setDate(action.fiveDayData.list[3].dt)), whichDay(setDate(action.fiveDayData.list[4].dt))],
+	                labels: [setDate(action.fiveDayData.list['0'].dt), setDate(action.fiveDayData.list[1].dt), setDate(action.fiveDayData.list[2].dt), setDate(action.fiveDayData.list[3].dt), setDate(action.fiveDayData.list[4].dt)],
 	                series: [[action.fiveDayData.list['0'].temp.max, action.fiveDayData.list[1].temp.max, action.fiveDayData.list[2].temp.max, action.fiveDayData.list[3].temp.max, action.fiveDayData.list[4].temp.max], [action.fiveDayData.list['0'].humidity, action.fiveDayData.list[1].humidity, action.fiveDayData.list[2].humidity, action.fiveDayData.list[3].humidity, action.fiveDayData.list[4].humidity]]
 	
 	            },
@@ -34404,33 +34549,10 @@
 	                chartPadding: {
 	                    top: 20,
 	                    right: 20,
-	                    bottom: 20,
+	                    bottom: 5,
 	                    left: 20
-	                },
-	                axisY: {
-	                    onlyInteger: true
-	                },
-	                plugins: [Chartist.plugins.ctAxisTitle({
-	                    axisX: {
-	                        axisTitle: 'Day of Week',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: -15,
-	                            y: 45
-	                        },
-	                        textAnchor: 'end'
-	                    },
-	                    axisY: {
-	                        axisTitle: 'Total',
-	                        axisClass: 'ct-axis-title',
-	                        offset: {
-	                            x: 0,
-	                            y: -1
-	                        },
-	                        flipTitle: false,
-	                        textAnchor: 'start'
-	                    }
-	                })]
+	                }
+	
 	            },
 	
 	            loadFive: false
@@ -34450,7 +34572,7 @@
 	    var stringDate = '';
 	    var date = new Date(timestamp * 1000),
 	        datevalues = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-	    stringDate = datevalues[1] + '-' + datevalues[2] + '-' + datevalues[0];
+	    stringDate = datevalues[1] + '/' + datevalues[2];
 	    return stringDate;
 	};
 	
