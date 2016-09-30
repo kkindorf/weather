@@ -21552,7 +21552,6 @@
 
 	'use strict';
 	
-	//style={image.url ? display:block: display:none;}
 	var fetch = __webpack_require__(175);
 	
 	var SHOW_CURRENT_WEATHER = 'SHOW_CURRENT_WEATHER';
@@ -21612,7 +21611,7 @@
 	    };
 	};
 	
-	var rootUrl = 'http://localhost:3000';
+	var rootUrl = 'http://hidden-woodland-89462.herokuapp.com/';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
@@ -21669,7 +21668,7 @@
 	    return function (dispatch) {
 	        var url = rootUrl + '/hourlyWeather';
 	        return fetch(url).then(function (response) {
-	            console.log(response); //response
+	            console.log(response);
 	            if (response.state < 200 || response.status >= 300) {
 	                var error = new Error(response.statusText);
 	                error.response = response;
@@ -21698,7 +21697,6 @@
 	            return response.json();
 	        }).then(function (data) {
 	            console.log(data);
-	
 	            return dispatch(showFiveDayWeather(data));
 	        }).catch(function (error) {
 	            return dispatch(showFiveDayWeatherError(data, error));
@@ -23970,56 +23968,55 @@
 	var ChartistGraph = __webpack_require__(270);
 	
 	var HourlyWeatherForeCast = _react2.default.createClass({
-	  displayName: 'HourlyWeatherForeCast',
+	    displayName: 'HourlyWeatherForeCast',
 	
-	  componentDidMount: function componentDidMount() {
-	    this.props.dispatch(actions.getHourlyWeather(this.props.data));
-	  },
-	  render: function render() {
+	    componentDidMount: function componentDidMount() {
+	        this.props.dispatch(actions.getHourlyWeather(this.props.data));
+	    },
+	    render: function render() {
 	
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      this.props.loading ? '' : _react2.default.createElement(
-	        'div',
-	        { className: 'pos-relative' },
-	        _react2.default.createElement(
-	          Link,
-	          { to: '/fivedayforecast' },
-	          _react2.default.createElement(
-	            'p',
-	            { className: 'link' },
-	            'Get Five Day Forecast'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'title' },
-	          'Hourly Forecast'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'humidity' },
-	          'Humidity %'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'temp' },
-	          'Temp F'
-	        ),
-	        _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
-	      )
-	    );
-	  }
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            this.props.loading ? '' : _react2.default.createElement(
+	                'div',
+	                { className: 'pos-relative' },
+	                _react2.default.createElement(
+	                    Link,
+	                    { to: '/fivedayforecast' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'link' },
+	                        'Get Five Day Forecast'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'title' },
+	                    'Hourly Forecast'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'humidity' },
+	                    'Humidity %'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'temp' },
+	                    'Temp F'
+	                ),
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+	            )
+	        );
+	    }
 	});
 	
 	var mapStateToProps = function mapStateToProps(state, props) {
-	  return {
-	    data: state.threeHourForeCast,
-	    loading: state.loading,
-	    options: state.threeHourOptions
-	
-	  };
+	    return {
+	        data: state.threeHourForeCast,
+	        loading: state.loading,
+	        options: state.threeHourOptions
+	    };
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
 	module.exports = Container;
