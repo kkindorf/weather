@@ -74,12 +74,6 @@ var getCurrentWeather = function(city, temp, description, id) {
             var url = rootUrl+'/currentWeather/'+lat+'/'+lon;
                     return fetch(url)
 
-<<<<<<< HEAD
-            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-                    var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-                    return fetch(currentURL)
-=======
->>>>>>> features
                 .then(function(response) {
                     console.log(response)
                     if (response.state < 200 || response.status >= 300) {
@@ -124,53 +118,6 @@ var getCurrentWeather = function(city, temp, description, id) {
 }
 
 var getHourlyWeather = function(data) {
-<<<<<<< HEAD
-    return function(dispatch){
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-        }
-        else{
-            showError("Your browser does not support Geolocation!");
-        }
-
-        function locationSuccess(position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-                    var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-                   var foreCastURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-                    console.log(foreCastURL)
-                    return fetch(foreCastURL)
-                .then(function(response) {
-                    console.log(response) //response
-                    if (response.state < 200 || response.status >= 300) {
-                        var error = new Error(response.statusText)
-                        error.response = response
-                        throw error;
-                    }
-                    return response.json()
-                }).then(function(data) {
-                    console.log(data)
-
-                    return dispatch(showHourlyWeather(data))
-                }).catch(function(error){
-                    return dispatch(showHourlyWeatherError(data, error))
-                })
-        }
-        function locationError(error){
-            switch(error.code) {
-                case error.TIMEOUT:
-                    showError("A timeout occured! Please try again!");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    showError('We can\'t detect your location. Sorry!');
-                    break;
-                case error.PERMISSION_DENIED:
-                    showError('Please allow geolocation access for this to work.');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    showError('An unknown error occured!');
-                    break;
-=======
     return function(dispatch){       
             var url = rootUrl+'/hourlyWeather';
             return fetch(url)
@@ -180,7 +127,6 @@ var getHourlyWeather = function(data) {
                 var error = new Error(response.statusText)
                 error.response = response
                 throw error;
->>>>>>> features
             }
             return response.json()
         }).then(function(data) {
@@ -195,53 +141,6 @@ var getHourlyWeather = function(data) {
 
 var getFiveDayWeather = function(data) {
     return function(dispatch){
-<<<<<<< HEAD
-         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-        }
-        else{
-            showError("Your browser does not support Geolocation!");
-        }
-        function locationSuccess(position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-                    var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-                   var fiveDayURL = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
-                    return fetch(fiveDayURL)
-                .then(function(response) {
-                    console.log(response) //response
-                    if (response.state < 200 || response.status >= 300) {
-                        var error = new Error(response.statusText)
-                        error.response = response
-                        throw error;
-                    }
-                    return response.json()
-                }).then(function(data) {
-                    console.log(data)
-                    
-                    
-
-                    return dispatch(showFiveDayWeather(data))
-                }).catch(function(error){
-                    return dispatch(showFiveDayWeatherError(data, error))
-                })
-        }
-    
-        function locationError(error){
-            switch(error.code) {
-                case error.TIMEOUT:
-                    showError("A timeout occured! Please try again!");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    showError('We can\'t detect your location. Sorry!');
-                    break;
-                case error.PERMISSION_DENIED:
-                    showError('Please allow geolocation access for this to work.');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    showError('An unknown error occured!');
-                    break;
-=======
          var url = rootUrl+'/fiveDay';
             return fetch(url)
         .then(function(response) {
@@ -250,7 +149,6 @@ var getFiveDayWeather = function(data) {
                 var error = new Error(response.statusText)
                 error.response = response
                 throw error;
->>>>>>> features
             }
             return response.json()
         }).then(function(data) {

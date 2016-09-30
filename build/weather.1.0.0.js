@@ -21543,11 +21543,7 @@
 		};
 	};
 	var Container = connect(mapStateToProps)(CurrentWeatherContainer);
-<<<<<<< HEAD
-	//module.exports = Container;
-=======
 	module.exports = Container;
->>>>>>> features
 	//module.exports = CurrentWeatherContainer;
 
 /***/ },
@@ -21626,16 +21622,9 @@
 	        function locationSuccess(position) {
 	            var lat = position.coords.latitude;
 	            var lon = position.coords.longitude;
-<<<<<<< HEAD
-	
-	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-	            return fetch(currentURL).then(function (response) {
-=======
 	            var url = rootUrl + '/currentWeather/' + lat + '/' + lon;
 	            return fetch(url).then(function (response) {
 	                console.log(response);
->>>>>>> features
 	                if (response.state < 200 || response.status >= 300) {
 	                    var error = new Error(response.statusText);
 	                    error.response = response;
@@ -21643,10 +21632,7 @@
 	                }
 	                return response.json();
 	            }).then(function (currentWeatherData) {
-<<<<<<< HEAD
-=======
 	                console.log(currentWeatherData);
->>>>>>> features
 	                var city = currentWeatherData.name;
 	                var temp = currentWeatherData.main.temp;
 	                var description = currentWeatherData.weather['0'].description;
@@ -21680,50 +21666,6 @@
 	
 	var getHourlyWeather = function getHourlyWeather(data) {
 	    return function (dispatch) {
-<<<<<<< HEAD
-	        if (navigator.geolocation) {
-	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-	        } else {
-	            showError("Your browser does not support Geolocation!");
-	        }
-	
-	        function locationSuccess(position) {
-	            var lat = position.coords.latitude;
-	            var lon = position.coords.longitude;
-	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var foreCastURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-	            console.log(foreCastURL);
-	            return fetch(foreCastURL).then(function (response) {
-	                console.log(response); //response
-	                if (response.state < 200 || response.status >= 300) {
-	                    var error = new Error(response.statusText);
-	                    error.response = response;
-	                    throw error;
-	                }
-	                return response.json();
-	            }).then(function (data) {
-	                console.log(data);
-	
-	                return dispatch(showHourlyWeather(data));
-	            }).catch(function (error) {
-	                return dispatch(showHourlyWeatherError(data, error));
-	            });
-	        }
-	        function locationError(error) {
-	            switch (error.code) {
-	                case error.TIMEOUT:
-	                    showError("A timeout occured! Please try again!");
-	                    break;
-	                case error.POSITION_UNAVAILABLE:
-	                    showError('We can\'t detect your location. Sorry!');
-	                    break;
-	                case error.PERMISSION_DENIED:
-	                    showError('Please allow geolocation access for this to work.');
-	                    break;
-	                case error.UNKNOWN_ERROR:
-	                    showError('An unknown error occured!');
-	                    break;
-=======
 	        var url = rootUrl + '/hourlyWeather';
 	        return fetch(url).then(function (response) {
 	            console.log(response);
@@ -21731,7 +21673,6 @@
 	                var error = new Error(response.statusText);
 	                error.response = response;
 	                throw error;
->>>>>>> features
 	            }
 	            return response.json();
 	        }).then(function (data) {
@@ -21745,49 +21686,6 @@
 	
 	var getFiveDayWeather = function getFiveDayWeather(data) {
 	    return function (dispatch) {
-<<<<<<< HEAD
-	        if (navigator.geolocation) {
-	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-	        } else {
-	            showError("Your browser does not support Geolocation!");
-	        }
-	        function locationSuccess(position) {
-	            var lat = position.coords.latitude;
-	            var lon = position.coords.longitude;
-	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var fiveDayURL = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
-	            return fetch(fiveDayURL).then(function (response) {
-	                console.log(response); //response
-	                if (response.state < 200 || response.status >= 300) {
-	                    var error = new Error(response.statusText);
-	                    error.response = response;
-	                    throw error;
-	                }
-	                return response.json();
-	            }).then(function (data) {
-	                console.log(data);
-	
-	                return dispatch(showFiveDayWeather(data));
-	            }).catch(function (error) {
-	                return dispatch(showFiveDayWeatherError(data, error));
-	            });
-	        }
-	
-	        function locationError(error) {
-	            switch (error.code) {
-	                case error.TIMEOUT:
-	                    showError("A timeout occured! Please try again!");
-	                    break;
-	                case error.POSITION_UNAVAILABLE:
-	                    showError('We can\'t detect your location. Sorry!');
-	                    break;
-	                case error.PERMISSION_DENIED:
-	                    showError('Please allow geolocation access for this to work.');
-	                    break;
-	                case error.UNKNOWN_ERROR:
-	                    showError('An unknown error occured!');
-	                    break;
-=======
 	        var url = rootUrl + '/fiveDay';
 	        return fetch(url).then(function (response) {
 	            console.log(response); //response
@@ -21795,7 +21693,6 @@
 	                var error = new Error(response.statusText);
 	                error.response = response;
 	                throw error;
->>>>>>> features
 	            }
 	            return response.json();
 	        }).then(function (data) {
@@ -23379,7 +23276,6 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-<<<<<<< HEAD
 	
 	var _ponyfill = __webpack_require__(193);
 	
@@ -23395,23 +23291,6 @@
 		root = window;
 	}
 	
-=======
-	
-	var _ponyfill = __webpack_require__(193);
-	
-	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var root = undefined; /* global window */
-	
-	if (typeof global !== 'undefined') {
-		root = global;
-	} else if (typeof window !== 'undefined') {
-		root = window;
-	}
-	
->>>>>>> features
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
@@ -23826,7 +23705,6 @@
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
 	 * @example
-<<<<<<< HEAD
 	 *
 	 * function Foo() {
 	 *   this.a = 1;
@@ -23838,19 +23716,6 @@
 	 * _.isPlainObject([1, 2, 3]);
 	 * // => false
 	 *
-=======
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
->>>>>>> features
 	 * _.isPlainObject({ 'x': 0, 'y': 0 });
 	 * // => true
 	 *
@@ -23940,7 +23805,6 @@
 	/**
 	 * Checks if `value` is object-like. A value is object-like if it's not `null`
 	 * and has a `typeof` result of "object".
-<<<<<<< HEAD
 	 *
 	 * @static
 	 * @memberOf _
@@ -23956,23 +23820,6 @@
 	 * _.isObjectLike([1, 2, 3]);
 	 * // => true
 	 *
-=======
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
->>>>>>> features
 	 * _.isObjectLike(_.noop);
 	 * // => false
 	 *
@@ -24105,76 +23952,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-<<<<<<< HEAD
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var router = __webpack_require__(207);
-	var Router = router.Router;
-	var Route = router.Route;
-	var Link = router.Link;
-	var actions = __webpack_require__(174);
-	var connect = __webpack_require__(177).connect;
-	var ChartistGraph = __webpack_require__(270);
-	
-	var HourlyWeatherForeCast = _react2.default.createClass({
-	    displayName: 'HourlyWeatherForeCast',
-	
-	    componentDidMount: function componentDidMount() {
-	        this.props.dispatch(actions.getHourlyWeather(this.props.data));
-	    },
-	    render: function render() {
-	
-	        return _react2.default.createElement(
-	            'div',
-	            null,
-	            this.props.loading ? '' : _react2.default.createElement(
-	                'div',
-	                { className: 'pos-relative' },
-	                _react2.default.createElement(
-	                    Link,
-	                    { to: '/fivedayforecast' },
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'link' },
-	                        'Get Five Day Forecast'
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'pos-abs' },
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'humidity' },
-	                        'Humidity %'
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'temp' },
-	                        'Temp F'
-	                    )
-	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Line', options: this.props.options })
-	            )
-	        );
-	    }
-	});
-	
-	var mapStateToProps = function mapStateToProps(state, props) {
-	    return {
-	        data: state.threeHourForeCast,
-	        loading: state.loading,
-	        options: state.threeHourOptions
-	
-	    };
-	};
-	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
-	//module.exports = Container;
-=======
 	
 	var _react = __webpack_require__(1);
 	
@@ -24243,7 +24020,6 @@
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
 	module.exports = Container;
->>>>>>> features
 	//module.exports = HourlyWeatherForeCast;
 
 /***/ },
@@ -34430,11 +34206,7 @@
 	    };
 	};
 	var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
-<<<<<<< HEAD
-	//module.exports = Container;
-=======
 	module.exports = Container;
->>>>>>> features
 	//module.exports = FiveDayWeatherForeCast;
 
 /***/ },
