@@ -21612,7 +21612,7 @@
 	    };
 	};
 	
-	var rootUrl = 'http://localhost:3000';
+	var rootUrl = 'https://localhost:3000';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
@@ -21631,7 +21631,6 @@
 	                    error.response = response;
 	                    throw error;
 	                }
-	
 	                return response.json();
 	            }).then(function (currentWeatherData) {
 	                console.log(currentWeatherData);
@@ -21668,107 +21667,42 @@
 	
 	var getHourlyWeather = function getHourlyWeather(data) {
 	    return function (dispatch) {
-	        if (navigator.geolocation) {
-	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-	        } else {
-	            showError("Your browser does not support Geolocation!");
-	        }
-	
-	        function locationSuccess(position) {
-	            var lat = position.coords.latitude;
-	            var lon = position.coords.longitude;
-	
-	            var url = rootUrl + '/hourlyWeather';
-	            return fetch(url)
-	            //var foreCastURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-	            //console.log(foreCastURL)
-	            .then(function (response) {
-	                console.log(response); //response
-	                if (response.state < 200 || response.status >= 300) {
-	                    var error = new Error(response.statusText);
-	                    error.response = response;
-	                    throw error;
-	                }
-	                return response.json();
-	            }).then(function (data) {
-	                console.log(data);
-	                return dispatch(showHourlyWeather(data));
-	            }).catch(function (error) {
-	                return dispatch(showHourlyWeatherError(data, error));
-	            });
-	        }
-	        function locationError(error) {
-	            switch (error.code) {
-	                case error.TIMEOUT:
-	                    showError("A timeout occured! Please try again!");
-	                    break;
-	                case error.POSITION_UNAVAILABLE:
-	                    showError('We can\'t detect your location. Sorry!');
-	                    break;
-	                case error.PERMISSION_DENIED:
-	                    showError('Please allow geolocation access for this to work.');
-	                    break;
-	                case error.UNKNOWN_ERROR:
-	                    showError('An unknown error occured!');
-	                    break;
+	        var url = rootUrl + '/hourlyWeather';
+	        return fetch(url).then(function (response) {
+	            console.log(response); //response
+	            if (response.state < 200 || response.status >= 300) {
+	                var error = new Error(response.statusText);
+	                error.response = response;
+	                throw error;
 	            }
-	        }
-	
-	        function showError(msg) {
-	            alert(msg);
-	        }
+	            return response.json();
+	        }).then(function (data) {
+	            console.log(data);
+	            return dispatch(showHourlyWeather(data));
+	        }).catch(function (error) {
+	            return dispatch(showHourlyWeatherError(data, error));
+	        });
 	    };
 	};
 	
 	var getFiveDayWeather = function getFiveDayWeather(data) {
 	    return function (dispatch) {
-	        if (navigator.geolocation) {
-	            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-	        } else {
-	            showError("Your browser does not support Geolocation!");
-	        }
-	        function locationSuccess(position) {
-	            var lat = position.coords.latitude;
-	            var lon = position.coords.longitude;
-	            var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
-	            var fiveDayURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
-	            return fetch(fiveDayURL).then(function (response) {
-	                console.log(response); //response
-	                if (response.state < 200 || response.status >= 300) {
-	                    var error = new Error(response.statusText);
-	                    error.response = response;
-	                    throw error;
-	                }
-	                return response.json();
-	            }).then(function (data) {
-	                console.log(data);
-	
-	                return dispatch(showFiveDayWeather(data));
-	            }).catch(function (error) {
-	                return dispatch(showFiveDayWeatherError(data, error));
-	            });
-	        }
-	
-	        function locationError(error) {
-	            switch (error.code) {
-	                case error.TIMEOUT:
-	                    showError("A timeout occured! Please try again!");
-	                    break;
-	                case error.POSITION_UNAVAILABLE:
-	                    showError('We can\'t detect your location. Sorry!');
-	                    break;
-	                case error.PERMISSION_DENIED:
-	                    showError('Please allow geolocation access for this to work.');
-	                    break;
-	                case error.UNKNOWN_ERROR:
-	                    showError('An unknown error occured!');
-	                    break;
+	        var url = rootUrl + '/fiveDay';
+	        return fetch(url).then(function (response) {
+	            console.log(response); //response
+	            if (response.state < 200 || response.status >= 300) {
+	                var error = new Error(response.statusText);
+	                error.response = response;
+	                throw error;
 	            }
-	        }
+	            return response.json();
+	        }).then(function (data) {
+	            console.log(data);
 	
-	        function showError(msg) {
-	            alert(msg);
-	        }
+	            return dispatch(showFiveDayWeather(data));
+	        }).catch(function (error) {
+	            return dispatch(showFiveDayWeatherError(data, error));
+	        });
 	    };
 	};
 	
