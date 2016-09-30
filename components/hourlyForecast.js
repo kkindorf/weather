@@ -47,8 +47,8 @@ var mapStateToProps = function(state, props){
     }
 }
 var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
-module.exports = Container;
-module.exports = HourlyWeatherForeCast;
+//module.exports = Container;
+//module.exports = HourlyWeatherForeCast;
 
 
 

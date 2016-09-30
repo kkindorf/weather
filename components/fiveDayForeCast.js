@@ -49,5 +49,5 @@ var mapStateToProps = function(state, props){
     }
 }
 var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
-module.exports = Container;
-module.exports = FiveDayWeatherForeCast;
+//module.exports = Container;
+//module.exports = FiveDayWeatherForeCast;

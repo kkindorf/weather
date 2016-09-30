@@ -21492,7 +21492,7 @@
 	var Container = connect(mapStateToProps)(App);
 	
 	module.exports = Container;
-	module.exports = App;
+	//module.exports = App;
 
 /***/ },
 /* 173 */
@@ -21543,8 +21543,8 @@
 		};
 	};
 	var Container = connect(mapStateToProps)(CurrentWeatherContainer);
-	module.exports = Container;
-	module.exports = CurrentWeatherContainer;
+	//module.exports = Container;
+	//module.exports = CurrentWeatherContainer;
 
 /***/ },
 /* 174 */
@@ -24084,8 +24084,8 @@
 	    };
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
-	module.exports = Container;
-	module.exports = HourlyWeatherForeCast;
+	//module.exports = Container;
+	//module.exports = HourlyWeatherForeCast;
 
 /***/ },
 /* 207 */
@@ -34266,8 +34266,8 @@
 	    };
 	};
 	var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
-	module.exports = Container;
-	module.exports = FiveDayWeatherForeCast;
+	//module.exports = Container;
+	//module.exports = FiveDayWeatherForeCast;
 
 /***/ },
 /* 273 */
