@@ -21596,7 +21596,7 @@
 	    };
 	};
 	
-	var rootUrl = 'https://hidden-woodland-89462.herokuapp.com';
+	var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
 	var getHourlyWeather = function getHourlyWeather(data) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
