@@ -21463,7 +21463,7 @@
 			return React.createElement(
 				'div',
 				{ className: 'wrapper' },
-				React.createElement(
+				this.props.loading ? React.createElement(
 					'div',
 					{ className: 'loader' },
 					React.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
@@ -21472,8 +21472,8 @@
 						{ className: 'sr-only' },
 						'Loading'
 					)
-				),
-				':\'\'};',
+				) : '',
+				';',
 				React.createElement(CurrentWeatherContainer, null),
 				React.createElement(
 					'div',
