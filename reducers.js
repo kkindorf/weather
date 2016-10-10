@@ -9,7 +9,7 @@ var initialWeatherState = {
     threeHourOptions: {},
     fiveDayForeCast: [],
     fiveDayOption: {},
-		loadHour: true,
+		loading: true,
     loadFive: true
 
 }
@@ -20,7 +20,8 @@ var initialWeatherState = {
                 currentCityName: action.city,
                 currentTemp: Math.round(action.temp) +" F ",
                 currentDescription: action.description,
-                id: action.id
+                id: action.id,
+								loading: false
             });
 
             return updatedCurrentWeather;
@@ -44,8 +45,7 @@ var initialWeatherState = {
                         left: 20
                     }
 
-                },
-								loadHour: false
+                }
             });
             return updatedHourlyWeather;
         }

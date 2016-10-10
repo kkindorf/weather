@@ -21463,6 +21463,17 @@
 			return React.createElement(
 				'div',
 				{ className: 'wrapper' },
+				React.createElement(
+					'div',
+					{ className: 'loader' },
+					React.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
+					React.createElement(
+						'span',
+						{ className: 'sr-only' },
+						'Loading'
+					)
+				),
+				':\'\'};',
 				React.createElement(CurrentWeatherContainer, null),
 				React.createElement(
 					'div',
@@ -21473,7 +21484,12 @@
 		}
 	});
 	
-	var Container = connect()(App);
+	var mapStateToProps = function mapStateToProps(state, props) {
+		return {
+			loading: state.loading
+		};
+	};
+	var Container = connect(mapStateToProps)(App);
 	
 	module.exports = Container;
 	//module.exports = App;
@@ -23945,64 +23961,53 @@
 	var ChartistGraph = __webpack_require__(270);
 	
 	var HourlyWeatherForeCast = _react2.default.createClass({
-		displayName: 'HourlyWeatherForeCast',
+	    displayName: 'HourlyWeatherForeCast',
 	
-		componentDidMount: function componentDidMount() {
-			this.props.dispatch(actions.getHourlyWeather(this.props.data));
-		},
-		render: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				this.props.loadHour ? _react2.default.createElement(
-					'div',
-					{ className: 'loadHour' },
-					_react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
-					_react2.default.createElement(
-						'span',
-						{ className: 'sr-only' },
-						'Loading'
-					)
-				) : _react2.default.createElement(
-					'div',
-					{ className: 'pos-relative' },
-					_react2.default.createElement(
-						Link,
-						{ to: '/fivedayforecast' },
-						_react2.default.createElement(
-							'p',
-							{ className: 'link' },
-							'Get Five Day Forecast'
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						{ className: 'title' },
-						'Hourly Forecast'
-					),
-					_react2.default.createElement(
-						'p',
-						{ className: 'humidity' },
-						'Humidity %'
-					),
-					_react2.default.createElement(
-						'p',
-						{ className: 'temp' },
-						'Temp F'
-					),
-					_react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
-				),
-				';'
-			);
-		}
+	    componentDidMount: function componentDidMount() {
+	        this.props.dispatch(actions.getHourlyWeather(this.props.data));
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'pos-relative' },
+	                _react2.default.createElement(
+	                    Link,
+	                    { to: '/fivedayforecast' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'link' },
+	                        'Get Five Day Forecast'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'title' },
+	                    'Hourly Forecast'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'humidity' },
+	                    'Humidity %'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'temp' },
+	                    'Temp F'
+	                ),
+	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+	            )
+	        );
+	    }
 	});
 	
 	var mapStateToProps = function mapStateToProps(state, props) {
-		return {
-			data: state.threeHourForeCast,
-			loadHour: state.loadHour,
-			options: state.threeHourOptions
-		};
+	    return {
+	        data: state.threeHourForeCast,
+	        options: state.threeHourOptions
+	    };
 	};
 	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
 	
@@ -34255,7 +34260,7 @@
 	    threeHourOptions: {},
 	    fiveDayForeCast: [],
 	    fiveDayOption: {},
-	    loadHour: true,
+	    loading: true,
 	    loadFive: true
 	
 	};
@@ -34266,7 +34271,8 @@
 	            currentCityName: action.city,
 	            currentTemp: Math.round(action.temp) + " F ",
 	            currentDescription: action.description,
-	            id: action.id
+	            id: action.id,
+	            loading: false
 	        });
 	
 	        return updatedCurrentWeather;
@@ -34288,8 +34294,7 @@
 	                    left: 20
 	                }
 	
-	            },
-	            loadHour: false
+	            }
 	        });
 	        return updatedHourlyWeather;
 	    }

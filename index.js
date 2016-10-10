@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var App = require('./components/app');
-var HourlyWeatherForeCast = require('./components/hourlyForeCast'); 
+var HourlyWeatherForeCast = require('./components/hourlyForeCast');
 var FiveDayWeatherForeCast = require('./components/fiveDayForeCast');
 var router = require('react-router');
 var Router = router.Router;
@@ -16,8 +16,8 @@ var routes = (
 				<IndexRoute component={HourlyWeatherForeCast} />
 				<Route path ='/fivedayforecast' component={FiveDayWeatherForeCast} />
 			</Route>
-		
-	
+
+
 	)
 
 document.addEventListener('DOMContentLoaded', function(){

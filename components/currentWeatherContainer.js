@@ -15,7 +15,7 @@ var CurrentWeatherContainer = React.createClass({
 				<p>{this.props.temp} {this.props.description}</p>
 				<i className={"wi wi-owm-"+this.props.id}></i>
 			</div>
-			
+
 		);
 	}
 })
@@ -26,7 +26,7 @@ var mapStateToProps = function(state, props){
         temp: state.currentTemp,
         description: state.currentDescription,
         id: state.id
-        
+
     }
 }
 var Container = connect(mapStateToProps)(CurrentWeatherContainer);

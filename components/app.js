@@ -5,6 +5,12 @@ var App = React.createClass({
 	render: function(){
 		return (
 			<div className="wrapper">
+
+					<div className="loader">
+						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
+						<span className="sr-only">Loading</span>
+					</div>
+					:''};
 				<CurrentWeatherContainer />
 				<div>
 					{this.props.children}
@@ -14,7 +20,12 @@ var App = React.createClass({
 	}
 });
 
-var Container = connect()(App);
+var mapStateToProps = function(state, props){
+    return{
+        loading: state.loading
+    }
+}
+var Container = connect(mapStateToProps)(App);
 
 module.exports = Container;
 //module.exports = App;
