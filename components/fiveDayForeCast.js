@@ -8,7 +8,7 @@ var connect = require('react-redux').connect;
 var ChartistGraph = require('react-chartist');
 
 var FiveDayWeatherForeCast = React.createClass({
-    
+
    componentDidMount: function(){
         this.props.dispatch(actions.getFiveDayWeather(this.props.data))
     },
@@ -18,12 +18,11 @@ var FiveDayWeatherForeCast = React.createClass({
         return(
             <div>
             {this.props.loadFive ?
-           
             <div className="loadFive">
                 <i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                 <span className="sr-only">Loading</span>
             </div>
-            : 
+            :
                 <div className="pos-relative">
                     <Link to={'/'}>
                         <p className="link">Get Hourly Forecast</p>
@@ -36,9 +35,9 @@ var FiveDayWeatherForeCast = React.createClass({
 
                 <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
                 </div>}
-            
+
             </div>
-            
+
         )
     }
 })
@@ -47,7 +46,7 @@ var mapStateToProps = function(state, props){
         data: state.fiveDayForeCast,
         loadFive: state.loadFive,
         options: state.fiveDayOptions
-        
+
     }
 }
 var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);

@@ -16,9 +16,16 @@ app.get('/status', function(req, res){
 	})
 });
 
-app.get('/currentWeather/:lat/:lon', function(req, res){
+app.get('/hourlyWeather/:lat/:lon', function(req, res){
 	lat = req.params.lat
 	lon = req.params.lon
+	var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
+	http.get(url, function(resp){
+		resp.pipe(res)
+	})
+});
+
+app.get('/currentWeather', function(req, res){
 	var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=imperial&APPID='+apiKey;
 	var url = currentURL;
 	http.get(url, function(resp){
@@ -26,12 +33,6 @@ app.get('/currentWeather/:lat/:lon', function(req, res){
    })
 });
 
-app.get('/hourlyWeather', function(req, res){
-	var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
-	http.get(url, function(resp){
-		resp.pipe(res)
-	})
-});
 
 app.get('/fiveDay', function(req, res){
 	var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;
@@ -43,4 +44,3 @@ app.get('/fiveDay', function(req, res){
 app.listen(port, function(){
 	console.log('app listening on port '+port)
 })
-

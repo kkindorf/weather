@@ -7,28 +7,16 @@ var App = React.createClass({
 	render: function(){
 		return (
 			<div className="wrapper">
-			{this.props.loading ? 
-			<div className="loader">
-  				<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
-  				<span className="sr-only">Loading</span>
-  			</div>
-  			:''};
 				<CurrentWeatherContainer />
 				<div>
 					{this.props.children}
-			
 				</div>
 			</div>
 		);
 	}
 });
-var mapStateToProps = function(state, props){
-	return{
-		loading: state.loading
-	}
-}
-var Container = connect(mapStateToProps)(App);
+
+var Container = connect()(App);
 
 module.exports = Container;
 //module.exports = App;
-

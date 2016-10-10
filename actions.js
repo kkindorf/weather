@@ -60,18 +60,57 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
 };
 
 var rootUrl = 'https://hidden-woodland-89462.herokuapp.com';
+var getHourlyWeather = function(data) {
+    return function(dispatch){
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+      }
+      else{
+          showError("Your browser does not support Geolocation!");
+      }
+      function locationSuccess(position) {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+            var url = rootUrl+'/hourlyWeather/'+lat+'/'+lon;
+            return fetch(url)
+        .then(function(response) {
+            if (response.state < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+            return response.json()
+        }).then(function(data) {
+            return dispatch(showHourlyWeather(data))
+        }).catch(function(error){
+            return dispatch(showHourlyWeatherError(data, error))
+        })
+      }
+      function locationError(error){
+          switch(error.code) {
+              case error.TIMEOUT:
+                  showError("A timeout occured! Please try again!");
+                  break;
+              case error.POSITION_UNAVAILABLE:
+                  showError('We can\'t detect your location. Sorry!');
+                  break;
+              case error.PERMISSION_DENIED:
+                  showError('Please allow geolocation access for this to work.');
+                  break;
+              case error.UNKNOWN_ERROR:
+                  showError('An unknown error occured!');
+                  break;
+          }
+
+      }
+      function showError(msg){
+          alert(msg);
+      }
+    }
+}
 var getCurrentWeather = function(city, temp, description, id) {
     return function(dispatch){
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-        }
-        else{
-            showError("Your browser does not support Geolocation!");
-        }
-        function locationSuccess(position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-            var url = rootUrl+'/currentWeather/'+lat+'/'+lon;
+            var url = rootUrl+'/currentWeather';
                     return fetch(url)
 
                 .then(function(response) {
@@ -90,50 +129,10 @@ var getCurrentWeather = function(city, temp, description, id) {
                 }).catch(function(error) {
                     return dispatch(showCurrentWeatherError(city, temp, description, id, error))
                 })
-            
-        }
-        function locationError(error){
-            switch(error.code) {
-                case error.TIMEOUT:
-                    showError("A timeout occured! Please try again!");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    showError('We can\'t detect your location. Sorry!');
-                    break;
-                case error.PERMISSION_DENIED:
-                    showError('Please allow geolocation access for this to work.');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    showError('An unknown error occured!');
-                    break;
-            }
-
-        }
-        function showError(msg){
-            alert(msg);
-        }
     }
 }
 
-var getHourlyWeather = function(data) {
-    return function(dispatch){       
-            var url = rootUrl+'/hourlyWeather';
-            return fetch(url)
-        .then(function(response) { 
-            if (response.state < 200 || response.status >= 300) {
-                var error = new Error(response.statusText)
-                error.response = response
-                throw error;
-            }
-            return response.json()
-        }).then(function(data) {
-            return dispatch(showHourlyWeather(data))
-        }).catch(function(error){
-            return dispatch(showHourlyWeatherError(data, error))
-        })
 
-    }
-}
 
 var getFiveDayWeather = function(data) {
     return function(dispatch){
@@ -151,7 +150,7 @@ var getFiveDayWeather = function(data) {
         }).catch(function(error){
             return dispatch(showFiveDayWeatherError(data, error))
         })
-    
+
    }
 }
 

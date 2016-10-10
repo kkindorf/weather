@@ -9,9 +9,9 @@ var initialWeatherState = {
     threeHourOptions: {},
     fiveDayForeCast: [],
     fiveDayOption: {},
-    loading: true,
+		loadHour: true,
     loadFive: true
-    
+
 }
 
     var weatherReducer = function(state, action){
@@ -21,8 +21,7 @@ var initialWeatherState = {
                 currentCityName: action.city,
                 currentTemp: Math.round(action.temp) +" F ",
                 currentDescription: action.description,
-                id: action.id,
-                loading: false
+                id: action.id
             });
 
             return updatedCurrentWeather;
@@ -30,7 +29,7 @@ var initialWeatherState = {
         if(action.type === actions.SHOW_CURRENT_WEATHER_ERROR){
             throw new Error('The current weather conditions could not be retrieved!');
         }
-        if(action.type === actions.SHOW_HOURLY_WEATHER){  
+        if(action.type === actions.SHOW_HOURLY_WEATHER){
                 var updatedHourlyWeather = Object.assign({}, state, {
                 threeHourForeCast:{
                         labels:[setTime(action.chartData.list['0'].dt), setTime(action.chartData.list[1].dt), setTime(action.chartData.list[2].dt), setTime(action.chartData.list[3].dt) ],
@@ -45,9 +44,10 @@ var initialWeatherState = {
                         bottom: 5,
                         left: 20
                     }
-                    
-                }
-            })
+
+                },
+								loadHour: false
+            });
             return updatedHourlyWeather;
         }
         if(action.type === actions.SHOW_HOURLY_WEATHER_ERROR){
@@ -69,7 +69,7 @@ var initialWeatherState = {
                         bottom: 5,
                         left: 20
                     }
-                    
+
                 },
 
                 loadFive: false
@@ -81,7 +81,7 @@ var initialWeatherState = {
         }
         return state;
     }
-    
+
     function whichDay(dateString) {
         return ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
         [new Date(dateString).getDay()];
@@ -108,13 +108,12 @@ var initialWeatherState = {
         stringTime = timevalue[0];
         if (stringTime < 12) {
             stringTime = stringTime.toString() + ' AM';
-        } 
+        }
         else {
             stringTime = (stringTime - 12).toString() + ' PM';
         }
         return stringTime;
     }
 
-    
+
     exports.weatherReducer = weatherReducer;
-    
