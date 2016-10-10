@@ -13,7 +13,6 @@ var initialWeatherState = {
     loadFive: true
 
 }
-
     var weatherReducer = function(state, action){
         state = state || initialWeatherState;
         if(action.type === actions.SHOW_CURRENT_WEATHER){

@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var http = require('http');
-
 var lat;
 var lon;
 var apiKey = '26e15f4e93a0b55a337858553d29b7aa';
@@ -32,7 +31,6 @@ app.get('/currentWeather', function(req, res){
        resp.pipe(res);
    })
 });
-
 
 app.get('/fiveDay', function(req, res){
 	var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&mode=json&units=imperial&cnt=5&APPID=' + apiKey;

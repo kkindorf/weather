@@ -21456,7 +21456,6 @@
 	var React = __webpack_require__(1);
 	var CurrentWeatherContainer = __webpack_require__(173);
 	var connect = __webpack_require__(177).connect;
-	
 	var App = React.createClass({
 		displayName: 'App',
 	
@@ -34135,13 +34134,11 @@
 	var FiveDayWeatherForeCast = _react2.default.createClass({
 	    displayName: 'FiveDayWeatherForeCast',
 	
-	
 	    componentDidMount: function componentDidMount() {
 	        this.props.dispatch(actions.getFiveDayWeather(this.props.data));
 	    },
 	
 	    render: function render() {
-	
 	        return _react2.default.createElement(
 	            'div',
 	            null,
@@ -34262,7 +34259,6 @@
 	    loadFive: true
 	
 	};
-	
 	var weatherReducer = function weatherReducer(state, action) {
 	    state = state || initialWeatherState;
 	    if (action.type === actions.SHOW_CURRENT_WEATHER) {
