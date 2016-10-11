@@ -1,18 +1,18 @@
 var actions = require('./actions');
 
 var initialWeatherState = {
-	currentCityName: '',
-	currentTemp: '',
-    currentDescription: '',
-    id: '',
-    threeHourForeCast: {},
-    threeHourOptions: {},
-    fiveDayForeCast: [],
-    fiveDayOption: {},
-		loading: true,
-    loadFive: true
+            currentCityName: '',
+	    currentTemp: '',
+	    currentDescription: '',
+	    id: '',
+	    threeHourForeCast: {},
+	    threeHourOptions: {},
+	    fiveDayForeCast: [],
+	    fiveDayOption: {},
+	    loading: true,
+	    loadFive: true
 
-}
+    }
     var weatherReducer = function(state, action){
         state = state || initialWeatherState;
         if(action.type === actions.SHOW_CURRENT_WEATHER){
@@ -42,11 +42,12 @@ var initialWeatherState = {
                         top: 20,
                         right: 20,
                         bottom: 5,
-                        left: 20,
-			loading: false
+                        left: 20
+			
                     }
 
-                }
+                },
+		loading: false
             });
             return updatedHourlyWeather;
         }
