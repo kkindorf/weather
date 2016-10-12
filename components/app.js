@@ -4,18 +4,20 @@ var connect = require('react-redux').connect;
 var App = React.createClass({
 	render: function(){
 		return (
-			<div className="wrapper">
+			<div>
 				{this.props.loading ?
 					<div className="loader">
 						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
 						<span className="sr-only">Loading</span>
 					</div>
-					:''};
+					:
+					<div className="wrapper">
 				<CurrentWeatherContainer />
 				<div>
 					{this.props.children}
 				</div>
-			</div>
+			</div>};
+		</div>
 		);
 	}
 });

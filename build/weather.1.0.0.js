@@ -21462,7 +21462,7 @@
 		render: function render() {
 			return React.createElement(
 				'div',
-				{ className: 'wrapper' },
+				null,
 				this.props.loading ? React.createElement(
 					'div',
 					{ className: 'loader' },
@@ -21472,14 +21472,17 @@
 						{ className: 'sr-only' },
 						'Loading'
 					)
-				) : '',
-				';',
-				React.createElement(CurrentWeatherContainer, null),
-				React.createElement(
+				) : React.createElement(
 					'div',
-					null,
-					this.props.children
-				)
+					{ className: 'wrapper' },
+					React.createElement(CurrentWeatherContainer, null),
+					React.createElement(
+						'div',
+						null,
+						this.props.children
+					)
+				),
+				';'
 			);
 		}
 	});
