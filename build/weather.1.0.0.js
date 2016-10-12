@@ -21472,7 +21472,9 @@
 						{ className: 'sr-only' },
 						'Loading'
 					)
-				) : React.createElement(
+				) : '',
+				';',
+				React.createElement(
 					'div',
 					{ className: 'wrapper' },
 					React.createElement(CurrentWeatherContainer, null),
@@ -21481,8 +21483,7 @@
 						null,
 						this.props.children
 					)
-				),
-				';'
+				)
 			);
 		}
 	});
@@ -34274,8 +34275,7 @@
 	            currentCityName: action.city,
 	            currentTemp: Math.round(action.temp) + " F ",
 	            currentDescription: action.description,
-	            id: action.id,
-	            loading: false
+	            id: action.id
 	        });
 	
 	        return updatedCurrentWeather;
@@ -34298,7 +34298,9 @@
 	
 	                }
 	
-	            }
+	            },
+	
+	            loading: false
 	        });
 	        return updatedHourlyWeather;
 	    }
