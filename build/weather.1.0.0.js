@@ -21465,7 +21465,7 @@
 				null,
 				this.props.loading ? React.createElement(
 					'div',
-					{ className: 'loader' },
+					{ className: 'loadFive' },
 					React.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
 					React.createElement(
 						'span',
