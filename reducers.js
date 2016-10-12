@@ -21,7 +21,7 @@ var initialWeatherState = {
                 currentTemp: Math.round(action.temp) +" F ",
                 currentDescription: action.description,
                 id: action.id,
-								
+								loading: false
             });
 
             return updatedCurrentWeather;
@@ -43,11 +43,10 @@ var initialWeatherState = {
                         right: 20,
                         bottom: 5,
                         left: 20
-			
+
                     }
 
-                },
-		loading: false
+                }
             });
             return updatedHourlyWeather;
         }

@@ -10,13 +10,13 @@ var App = React.createClass({
 						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
 						<span className="sr-only">Loading</span>
 					</div>
-					:''};
-				<div className="wrapper">
+					:
+					<div className="wrapper">
 				<CurrentWeatherContainer />
 				<div>
 					{this.props.children}
 				</div>
-			</div>
+			</div>};
 		</div>
 		);
 	}
