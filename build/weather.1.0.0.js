@@ -21472,7 +21472,9 @@
 						{ className: 'sr-only' },
 						'Loading'
 					)
-				) : React.createElement(
+				) : '',
+				';',
+				React.createElement(
 					'div',
 					{ className: 'wrapper' },
 					React.createElement(CurrentWeatherContainer, null),
@@ -21481,8 +21483,7 @@
 						null,
 						this.props.children
 					)
-				),
-				';'
+				)
 			);
 		}
 	});
