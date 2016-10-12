@@ -21465,7 +21465,7 @@
 				null,
 				this.props.loading ? React.createElement(
 					'div',
-					{ className: 'loadFive' },
+					{ className: 'loader' },
 					React.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
 					React.createElement(
 						'span',
@@ -34275,7 +34275,8 @@
 	            currentCityName: action.city,
 	            currentTemp: Math.round(action.temp) + " F ",
 	            currentDescription: action.description,
-	            id: action.id
+	            id: action.id,
+	            loading: false
 	        });
 	
 	        return updatedCurrentWeather;
@@ -34298,9 +34299,7 @@
 	
 	                }
 	
-	            },
-	
-	            loading: false
+	            }
 	        });
 	        return updatedHourlyWeather;
 	    }

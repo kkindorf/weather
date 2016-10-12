@@ -6,7 +6,7 @@ var App = React.createClass({
 		return (
 			<div>
 				{this.props.loading ?
-					<div className="loadFive">
+					<div className="loader">
 						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
 						<span className="sr-only">Loading</span>
 					</div>
