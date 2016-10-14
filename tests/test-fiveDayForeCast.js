@@ -11,9 +11,9 @@ describe('FiveDayWeatherForeCast component', function(){
 		renderer.render(<FiveDayWeatherForeCast data ={data}
 										options = {options} />);
 		var result = renderer.getRenderOutput();
-		console.log(result)
 		result.type.should.equal('div');
-		result.props.children.type.should.equal('div')
+		result.props.children.type.should.equal('div');
+		
 
 		
 	})

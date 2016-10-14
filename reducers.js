@@ -7,7 +7,7 @@ var initialWeatherState = {
 	    id: '',
 	    threeHourForeCast: {},
 	    threeHourOptions: {},
-	    fiveDayForeCast: [],
+	    fiveDayForeCast: {},
 	    fiveDayOption: {},
 	    loading: true,
 	    loadFive: true,

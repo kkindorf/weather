@@ -17,13 +17,24 @@ describe('CurrentWeather component', function(){
 										temp = {temp}
 										id = {id} />);
 		var result = renderer.getRenderOutput();
-		result.props.className.should.equal('current-weather');
-		
-		var city = result.props.children[0];
+		result.type.should.equal('div');
+		var wrapper = result.props.children[0];
+		wrapper.type.should.equal('div');
+		wrapper.props.className.should.equal('wrapper');
+		var currentWeather = wrapper.props.children[0];
+		currentWeather.type.should.equal('div');
+		currentWeather.props.className.should.equal('current-weather');
+		var city = currentWeather.props.children[0];
+		city.type.should.equal('h1');
 		city.props.className.should.equal('city');
-		city.props.children.should.equal('Boston')
-		result.props.children[1].type.should.equal('p');
-		result.props.children[2].type.should.equal('i');
+		city.props.children.should.equal('Boston');
+		var p = currentWeather.props.children[1];
+		p.type.should.equal('p');
+		var i = currentWeather.props.children[2];
+		i.type.should.equal('i');
+		i.props.className.should.equal('wi wi-owm-Hi!');
+
+
 		
 
 
