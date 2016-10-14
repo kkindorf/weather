@@ -1,7 +1,7 @@
 var React = require('react');
 var TestUtils = require('react-addons-test-utils');
 var should = require('chai').should();
-var FiveDayWeatherForeCast = require('../components/fiveDayForeCast');
+var FiveDayWeatherForeCast = require('../components/fiveDayForeCast').FiveDayForeCast;
 //how do I test what's inside the object and function?
 describe('FiveDayWeatherForeCast component', function(){
 	it('Renders a five day weather forecast', function(){

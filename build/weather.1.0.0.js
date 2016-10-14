@@ -34114,7 +34114,7 @@
 	    };
 	};
 	exports.AFiveDayForeCast = connect(mapStateToProps)(FiveDayWeatherForeCast);
-	exports.FiveDayForeCase = FiveDayWeatherForeCast;
+	exports.FiveDayForeCast = FiveDayWeatherForeCast;
 
 /***/ },
 /* 271 */

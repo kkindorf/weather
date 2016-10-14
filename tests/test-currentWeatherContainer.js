@@ -2,7 +2,7 @@ var React = require('react');
 var TestUtils = require('react-addons-test-utils');
 var should = require('chai').should();
 
-var CurrentWeather = require('../components/currentWeatherContainer');
+var CurrentWeather = require('../components/currentWeatherContainer').CurrentWeatherContainer;
 
 describe('CurrentWeather component', function(){
 	it('Renders the current Weather Data', function(){
