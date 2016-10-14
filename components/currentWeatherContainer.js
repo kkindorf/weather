@@ -26,8 +26,9 @@ var CurrentWeatherContainer = React.createClass({
 				<h1 className="city">{this.props.city}</h1>
 				<p>{this.props.temp} {this.props.description}</p>
 				<i className={"wi wi-owm-"+this.props.id}></i>
-				<a href="https://pure-scrubland-15027.herokuapp.com"><p className="link">Update Weather</p></a>
-				
+				<div className="padding-bottom">
+				<button className="btn btn-default link" role="button"><a href="https://pure-scrubland-15027.herokuapp.com">Update Weather</a></button>
+				</div>
 			</div>
 			<div>
 					{this.props.children}

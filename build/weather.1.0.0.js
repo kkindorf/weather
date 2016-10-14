@@ -21490,12 +21490,16 @@
 					'div',
 					{ className: 'pos-relative' },
 					_react2.default.createElement(
-						Link,
-						{ to: '/fivedayforecast' },
+						'div',
+						{ className: 'padding-bottom' },
 						_react2.default.createElement(
-							'h3',
-							{ className: 'link' },
-							'Five Day Forecast'
+							'button',
+							{ className: 'btn btn-default link', type: 'button' },
+							_react2.default.createElement(
+								Link,
+								{ to: '/fivedayforecast' },
+								'Get Five Day Forecast'
+							)
 						)
 					),
 					_react2.default.createElement(
@@ -34072,12 +34076,16 @@
 	                'div',
 	                { className: 'pos-relative' },
 	                _react2.default.createElement(
-	                    Link,
-	                    { to: '/' },
+	                    'div',
+	                    { className: 'padding-bottom' },
 	                    _react2.default.createElement(
-	                        'h3',
-	                        { className: 'link' },
-	                        'Hourly Forecast'
+	                        'button',
+	                        { className: 'btn btn-default link', type: 'button' },
+	                        _react2.default.createElement(
+	                            Link,
+	                            { to: '/' },
+	                            'Get Hourly Forecast'
+	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -34167,12 +34175,16 @@
 						),
 						React.createElement('i', { className: "wi wi-owm-" + this.props.id }),
 						React.createElement(
-							'a',
-							{ href: 'https://pure-scrubland-15027.herokuapp.com' },
+							'div',
+							{ className: 'padding-bottom' },
 							React.createElement(
-								'p',
-								{ className: 'link' },
-								'Update Weather'
+								'button',
+								{ className: 'btn btn-default link', role: 'button' },
+								React.createElement(
+									'a',
+									{ href: 'https://pure-scrubland-15027.herokuapp.com' },
+									'Update Weather'
+								)
 							)
 						)
 					),

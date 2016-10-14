@@ -9,29 +9,17 @@ body{
 	width: 50%;
 	text-align: center;
 	color: white;
-	font-size: 1.3em;
-	position: relative;
 
 }
 
 .city-temp{
 	display: inline;
 }
-
-
-.child-link1{
-  display: inline-block;
-  margin-right: 40px;
-}
-.child-link2{
-  display: inline-block;
+.padding-bottom{
+  padding: 10px;
+  text-align: center;
 }
 
-.link{
-	  color: white;
-    text-align: center;
-    text-decoration: none;
-}
 
 .temp{
 	color: #d70206;
@@ -68,8 +56,20 @@ span{
 i{
 	font-size: 90px;
 }
+.link{
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 10px;
+    background:#33004C;
+    margin-top: 10px;
+
+}
+
 a{
 	text-decoration: none;
+  color: white;
+  font-size: 1.3em;
 }
 .ct-label {
     font-size: 15px;

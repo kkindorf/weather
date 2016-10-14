@@ -22,9 +22,10 @@ var HourlyWeatherForeCast = React.createClass({
             	:
             	
 				<div className="pos-relative">
-					<Link to={'/fivedayforecast'}>
-						<h3 className="link">Five Day Forecast</h3>
-					</Link>
+					<div className="padding-bottom">
+						<button className="btn btn-default link" type="button"><Link to={'/fivedayforecast'}>Get Five Day Forecast</Link></button>
+					</div>
+					
 				    <h4 className="title">Hourly Forecast</h4>
 				    <p className="humidity">Humidity %</p>
 				    <p className="temp">Temp F</p>
