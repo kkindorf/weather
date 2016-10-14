@@ -25,7 +25,7 @@ var CurrentWeatherContainer = React.createClass({
 				<h1 className="city">{this.props.city}</h1>
 				<p>{this.props.temp} {this.props.description}</p>
 				<i className={"wi wi-owm-"+this.props.id}></i>
-				<a href="http://localhost:3000"><p className="link">Update Weather</p></a>
+				<a href="https://pure-scrubland-15027.herokuapp.com"><p className="link">Update Weather</p></a>
 				<div className="links">
 					<div className="child-link1">
 					<Link to={'/hourlyForeCast'}>

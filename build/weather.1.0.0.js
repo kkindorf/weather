@@ -21541,7 +21541,7 @@
 					React.createElement('i', { className: "wi wi-owm-" + this.props.id }),
 					React.createElement(
 						'a',
-						{ href: 'http://localhost:3000' },
+						{ href: 'https://pure-scrubland-15027.herokuapp.com' },
 						React.createElement(
 							'p',
 							{ className: 'link' },
@@ -27394,8 +27394,8 @@
 	        error: error
 	    };
 	};
-	https: //pure-scrubland-15027.herokuapp.com
-	var rootUrl = 'http://localhost:3000';
+	
+	var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
