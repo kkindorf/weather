@@ -48,9 +48,9 @@
 	
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
-	var HourlyWeatherForeCast = __webpack_require__(172);
-	var FiveDayWeatherForeCast = __webpack_require__(270);
-	var CurrentWeatherContainer = __webpack_require__(271);
+	var HourlyWeatherForeCast = __webpack_require__(172).AHourlyForeCast;
+	var FiveDayWeatherForeCast = __webpack_require__(270).AFiveDayForeCast;
+	var CurrentWeatherContainer = __webpack_require__(271).ACurrentWeatherContainer;
 	var router = __webpack_require__(173);
 	var Router = router.Router;
 	var Route = router.Route;
@@ -21530,11 +21530,8 @@
 			loadHour: state.loadHour
 		};
 	};
-	var Container = connect(mapStateToProps)(HourlyWeatherForeCast);
-	
-	module.exports = Container;
-	
-	//module.exports = HourlyWeatherForeCast;
+	exports.AHourlyForeCast = connect(mapStateToProps)(HourlyWeatherForeCast);
+	exports.HourlyForeCast = HourlyWeatherForeCast;
 
 /***/ },
 /* 173 */
@@ -34116,9 +34113,8 @@
 	
 	    };
 	};
-	var Container = connect(mapStateToProps)(FiveDayWeatherForeCast);
-	module.exports = Container;
-	//module.exports = FiveDayWeatherForeCast;
+	exports.AFiveDayForeCast = connect(mapStateToProps)(FiveDayWeatherForeCast);
+	exports.FiveDayForeCase = FiveDayWeatherForeCast;
 
 /***/ },
 /* 271 */
@@ -34209,9 +34205,8 @@
 	
 		};
 	};
-	var Container = connect(mapStateToProps)(CurrentWeatherContainer);
-	module.exports = Container;
-	//module.exports = CurrentWeatherContainer;
+	exports.ACurrentWeatherContainer = connect(mapStateToProps)(CurrentWeatherContainer);
+	exports.CurrentWeatherContainer = CurrentWeatherContainer;
 
 /***/ },
 /* 272 */

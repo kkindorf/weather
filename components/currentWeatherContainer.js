@@ -50,6 +50,6 @@ var mapStateToProps = function(state, props){
 
     }
 }
-var Container = connect(mapStateToProps)(CurrentWeatherContainer);
-module.exports = Container;
-//module.exports = CurrentWeatherContainer;
+exports.ACurrentWeatherContainer = connect(mapStateToProps)(CurrentWeatherContainer)
+exports.CurrentWeatherContainer = CurrentWeatherContainer;
+
