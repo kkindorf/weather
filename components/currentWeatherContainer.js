@@ -1,5 +1,5 @@
 var React = require('react');
-//var HourlyWeatherForeCast = require('./hourlyForeCast');
+var HourlyWeatherForeCast = require('./hourlyForeCast');
 //var FiveDayWeatherForeCast = require('./fiveDayForeCast');
 var router = require('react-router');
 var Router = router.Router;
@@ -11,9 +11,6 @@ var connect = require('react-redux').connect;
 var CurrentWeatherContainer = React.createClass({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getCurrentWeather(this.props.city, this.props.temp, this.props.description, this.props.id))
-	},
-	setInitialState: function(){
-		
 	},
 	render: function(){
 		return (
@@ -28,6 +25,7 @@ var CurrentWeatherContainer = React.createClass({
 				<h1 className="city">{this.props.city}</h1>
 				<p>{this.props.temp} {this.props.description}</p>
 				<i className={"wi wi-owm-"+this.props.id}></i>
+				<a href="http://localhost:3000"><p className="link">Update Weather</p></a>
 				<div className="links">
 					<div className="child-link1">
 					<Link to={'/hourlyForeCast'}>
