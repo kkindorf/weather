@@ -14,16 +14,20 @@ var HourlyWeatherForeCast = React.createClass({
 	render:function() {
 		return(
 			<div>
+				{this.props.loadHour ?
+            		<div className="loadFive">
+                		<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
+               	 		<span className="sr-only">Loading</span>
+            		</div>
+            	:
 				<div className="pos-relative">
-				    <Link to={'/fivedayforecast'}>
-					<p className="link">Get Five Day Forecast</p>
-				    </Link>
-				    <p className="title">Hourly Forecast</p>
+				    <h2 className="title">Hourly Forecast</h2>
 				    <p className="humidity">Humidity %</p>
 				    <p className="temp">Temp F</p>
 				    <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
-				</div>
-      			</div>
+				</div>}
+			</div>
+      		
 		)
 	}
 })
@@ -31,7 +35,8 @@ var HourlyWeatherForeCast = React.createClass({
 var mapStateToProps = function(state, props){
     return{
         data: state.threeHourForeCast,
-        options: state.threeHourOptions
+        options: state.threeHourOptions,
+        loadHour: state.loadHour
     }
 }
 var Container = connect(mapStateToProps)(HourlyWeatherForeCast);

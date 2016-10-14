@@ -15,16 +15,18 @@ app.get('/status', function(req, res){
 	})
 });
 
-app.get('/hourlyWeather/:lat/:lon', function(req, res){
-	lat = req.params.lat
-	lon = req.params.lon
+
+app.get('/hourlyWeather', function(req, res){
+
 	var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=' + apiKey;
 	http.get(url, function(resp){
 		resp.pipe(res)
 	})
 });
 
-app.get('/currentWeather', function(req, res){
+app.get('/currentWeather/:lat/:lon', function(req, res){
+	lat = req.params.lat
+	lon = req.params.lon
 	var currentURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=imperial&APPID='+apiKey;
 	var url = currentURL;
 	http.get(url, function(resp){

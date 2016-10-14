@@ -58,31 +58,35 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
 };
 
 var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
-var getHourlyWeather = function(data) {
-  return function(dispatch){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-    }
-    else{
-        showError("Your browser does not support Geolocation!");
-    }
-    function locationSuccess(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-          var url = rootUrl+'/hourlyWeather/'+lat+'/'+lon;
-          return fetch(url)
-      .then(function(response) {
-          if (response.state < 200 || response.status >= 300) {
-              var error = new Error(response.statusText)
-              error.response = response
-              throw error;
-          }
-          return response.json()
-      }).then(function(data) {
-          return dispatch(showHourlyWeather(data))
-      }).catch(function(error){
-          return dispatch(showHourlyWeatherError(data, error))
-      })
+var getCurrentWeather = function(city, temp, description, id) {
+    return function(dispatch){
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+      }
+      else{
+          showError("Your browser does not support Geolocation!");
+      }
+      function locationSuccess(position) {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+        var url = rootUrl+'/currentWeather/'+lat+'/'+lon;
+            return fetch(url)
+        .then(function(response) {
+            if (response.state < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+            return response.json()
+        }).then(function(currentWeatherData) {
+            var city = currentWeatherData.name;
+            var temp = currentWeatherData.main.temp;
+            var description = currentWeatherData.weather['0'].description;
+            var id = currentWeatherData.weather['0'].id;
+            return dispatch(showCurrentWeather(city, temp, description, id))
+        }).catch(function(error) {
+            return dispatch(showCurrentWeatherError(city, temp, description, id, error))
+        })
     }
     function locationError(error){
         switch(error.code) {
@@ -105,30 +109,25 @@ var getHourlyWeather = function(data) {
     }
   }
 }
-var getCurrentWeather = function(city, temp, description, id) {
-    return function(dispatch){
-        var url = rootUrl+'/currentWeather';
-            return fetch(url)
-        .then(function(response) {
-            if (response.state < 200 || response.status >= 300) {
-                var error = new Error(response.statusText)
-                error.response = response
-                throw error;
-            }
-            return response.json()
-        }).then(function(currentWeatherData) {
-            var city = currentWeatherData.name;
-            var temp = currentWeatherData.main.temp;
-            var description = currentWeatherData.weather['0'].description;
-            var id = currentWeatherData.weather['0'].id;
-            return dispatch(showCurrentWeather(city, temp, description, id))
-        }).catch(function(error) {
-            return dispatch(showCurrentWeatherError(city, temp, description, id, error))
-        })
-    }
+
+var getHourlyWeather = function(data) {
+  return function(dispatch){
+          var url = rootUrl+'/hourlyWeather';
+          return fetch(url)
+      .then(function(response) {
+          if (response.state < 200 || response.status >= 300) {
+              var error = new Error(response.statusText)
+              error.response = response
+              throw error;
+          }
+          return response.json()
+      }).then(function(data) {
+          return dispatch(showHourlyWeather(data))
+      }).catch(function(error){
+          return dispatch(showHourlyWeatherError(data, error))
+      })
+  }
 }
-
-
 
 var getFiveDayWeather = function(data) {
     return function(dispatch){

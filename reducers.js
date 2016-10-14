@@ -10,7 +10,8 @@ var initialWeatherState = {
 	    fiveDayForeCast: [],
 	    fiveDayOption: {},
 	    loading: true,
-	    loadFive: true
+	    loadFive: true,
+        loadHour: true
 
     }
     var weatherReducer = function(state, action){
@@ -21,7 +22,7 @@ var initialWeatherState = {
                 currentTemp: Math.round(action.temp) +" F ",
                 currentDescription: action.description,
                 id: action.id,
-								loading: false
+				loading: false
             });
 
             return updatedCurrentWeather;
@@ -46,7 +47,8 @@ var initialWeatherState = {
 
                     }
 
-                }
+                },
+                loadHour: false
             });
             return updatedHourlyWeather;
         }

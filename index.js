@@ -13,11 +13,9 @@ var store = require('./store');
 
 var routes = (
 			<Route path = '/' component={App} >
-				<IndexRoute component={HourlyWeatherForeCast} />
+				<Route path = '/hourlyForeCast' component={HourlyWeatherForeCast} />
 				<Route path ='/fivedayforecast' component={FiveDayWeatherForeCast} />
 			</Route>
-
-
 	)
 
 document.addEventListener('DOMContentLoaded', function(){

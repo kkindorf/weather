@@ -22,16 +22,12 @@ var FiveDayWeatherForeCast = React.createClass({
             		</div>
             	:
                		<div className="pos-relative">
-                    		<Link to={'/'}>
-                       		 <p className="link">Get Hourly Forecast</p>
-                    		</Link>
-				<p className="title">Five Day Forecast</p>
+				<h2 className="title">Five Day Forecast</h2>
 				<p className="humidity">Humidity %</p>
 				<p className="temp">Temp F</p>
                			<ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
                 	</div>}
            	 </div>
-
         )
     }
 })
