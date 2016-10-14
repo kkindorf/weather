@@ -1,5 +1,5 @@
 var React = require('react');
-var HourlyWeatherForeCast = require('./hourlyForeCast');
+//var HourlyWeatherForeCast = require('./hourlyForeCast');
 //var FiveDayWeatherForeCast = require('./fiveDayForeCast');
 var router = require('react-router');
 var Router = router.Router;
@@ -21,22 +21,16 @@ var CurrentWeatherContainer = React.createClass({
 						<span className="sr-only">Loading</span>
 					</div>
 					:
+					<div className="wrapper">
 					<div className="current-weather">
 				<h1 className="city">{this.props.city}</h1>
 				<p>{this.props.temp} {this.props.description}</p>
 				<i className={"wi wi-owm-"+this.props.id}></i>
 				<a href="https://pure-scrubland-15027.herokuapp.com"><p className="link">Update Weather</p></a>
-				<div className="links">
-					<div className="child-link1">
-					<Link to={'/hourlyForeCast'}>
-						<p className="link">Hourly Forecast</p>
-					</Link>
-					</div>
-					<div className="child-link2">
-					<Link to={'/fivedayforecast'}>
-						<p className="link">Five Day Forecast</p>
-				    </Link>
-				    </div>
+				
+			</div>
+			<div>
+					{this.props.children}
 				</div>
 			</div>};
 			</div>
