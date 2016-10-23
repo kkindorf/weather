@@ -20,19 +20,19 @@ var HourlyWeatherForeCast = React.createClass({
                	 		<span className="sr-only">Loading</span>
             		</div>
             	:
-            	
+
 				<div className="pos-relative">
 					<div className="padding-bottom">
 						<button className="btn btn-default link" type="button"><Link to={'/fivedayforecast'}>Get Five Day Forecast</Link></button>
 					</div>
-					
+
 				    <h4 className="title">Hourly Forecast</h4>
+						<p className="temp">Temp F</p>
 				    <p className="humidity">Humidity %</p>
-				    <p className="temp">Temp F</p>
 				    <ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
 				</div>}
 			</div>
-      		
+
 		)
 	}
 })
@@ -46,5 +46,3 @@ var mapStateToProps = function(state, props){
 }
 exports.AHourlyForeCast = connect(mapStateToProps)(HourlyWeatherForeCast)
 exports.HourlyForeCast = HourlyWeatherForeCast;
-
-

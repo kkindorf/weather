@@ -56,6 +56,7 @@ var showFiveDayWeatherError = function(fiveDayData, error) {
         error: error
     }
 };
+http://localhost:3000/
 
 var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
 var getCurrentWeather = function(city, temp, description, id) {

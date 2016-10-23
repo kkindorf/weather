@@ -14,25 +14,23 @@ var FiveDayWeatherForeCast = React.createClass({
 
 	render:function() {
         return(
-            	<div>
+            <div>
             	{this.props.loadFive ?
             		<div className="loadFive">
                 		<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
                	 		<span className="sr-only">Loading</span>
             		</div>
             	:
-              
-               		<div className="pos-relative">
-                  <div className="padding-bottom">
-                  <button className="btn btn-default link" type="button"><Link to={'/'}>Get Hourly Forecast</Link></button>
-                  </div>
-            
-				<h4 className="title">Five Day Forecast</h4>
-				<p className="humidity">Humidity %</p>
-				<p className="temp">Temp F</p>
+               	<div className="pos-relative">
+                    <div className="padding-bottom">
+                      <button className="btn btn-default link" type="button"><Link to={'/'}>Get Hourly Forecast</Link></button>
+                    </div>
+            				<h4 className="title">Five Day Forecast</h4>
+                    <p className="temp">Temp F</p>
+            				<p className="humidity">Humidity %</p>
                			<ChartistGraph data={this.props.data} type={'Bar'} options={this.props.options} />
-                	</div>}
-           	 </div>
+                </div>}
+           	</div>
         )
     }
 })
@@ -46,4 +44,3 @@ var mapStateToProps = function(state, props){
 }
 exports.AFiveDayForeCast = connect(mapStateToProps)(FiveDayWeatherForeCast)
 exports.FiveDayForeCast = FiveDayWeatherForeCast;
-

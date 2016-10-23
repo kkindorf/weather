@@ -21509,13 +21509,13 @@
 					),
 					_react2.default.createElement(
 						'p',
-						{ className: 'humidity' },
-						'Humidity %'
+						{ className: 'temp' },
+						'Temp F'
 					),
 					_react2.default.createElement(
 						'p',
-						{ className: 'temp' },
-						'Temp F'
+						{ className: 'humidity' },
+						'Humidity %'
 					),
 					_react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
 				)
@@ -27253,6 +27253,7 @@
 	        error: error
 	    };
 	};
+	http: //localhost:3000/
 	
 	var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
@@ -34092,13 +34093,13 @@
 	                ),
 	                _react2.default.createElement(
 	                    'p',
-	                    { className: 'humidity' },
-	                    'Humidity %'
+	                    { className: 'temp' },
+	                    'Temp F'
 	                ),
 	                _react2.default.createElement(
 	                    'p',
-	                    { className: 'temp' },
-	                    'Temp F'
+	                    { className: 'humidity' },
+	                    'Humidity %'
 	                ),
 	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
 	            )
@@ -34163,7 +34164,7 @@
 							this.props.city
 						),
 						React.createElement(
-							'p',
+							'h2',
 							null,
 							this.props.temp,
 							' ',

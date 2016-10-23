@@ -3,44 +3,48 @@ body{
 	background: #33004C;
 	font-family: 'Lato', sans-serif;
 }
-
-.current-weather{
-	margin: auto;
-	width: 50%;
+.wrapper{
+	text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 500px;
+  height: 600px;
 	text-align: center;
 	color: white;
-
 }
-
 .city-temp{
 	display: inline;
 }
 .padding-bottom{
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
-
 
 .temp{
 	color: #d70206;
 	font-weight: bolder;
 	display: inline;
+	float: left;
 }
 .humidity{
 	color: #f05b4f;
     font-weight: bolder;
     display: inline;
-    padding-left: 15%;
     padding-right: 2%;
+		float: left;
+		padding-left: 45px;
 }
-.pos-relative{
-    width: 90%;
-    margin: 0 auto;
-}
+
 .pos-relative .title{
   text-align: center;
-  color: white;
   padding-bottom: 0;
+	font-size:1.3em;
+	margin-bottom: 0;
+	margin-top: 20px;
 }
 
 span{
@@ -49,21 +53,21 @@ span{
   overflow:visible !important;
 }
 .ct-chart{
-    width: 85%;
     margin: auto;
 }
 
 i{
-	font-size: 90px;
+	font-size: 95px;
+	padding: 8px;
+
 }
 .link{
     color: white;
     text-decoration: none;
-    border: 2px solid white;
-    padding: 10px;
-    background:#33004C;
-    margin-top: 10px;
-
+    padding: 4px;
+    background: #33004C;
+    margin-top: 8px;
+		border: none;
 }
 
 a{
@@ -97,19 +101,11 @@ a{
 /*media queries*/
 
 @media screen and (max-width:650px) {
-    .current-weather{
-        width:100%;
-    }
-    .humidity {
-        padding-left: 20%;
-    }
 
-    .pos-relative {
-        width: 100%;
-    }
-    .ct-chart{
-        width: 95%;
-    }
+	.wrapper{
+		width: 400px;
+		height: 500px;
+	}
     .loader{
         bottom: 0;
         height: 100px;
@@ -122,6 +118,7 @@ a{
         color: white;
         padding-top:10%;
 }
+
 
 
 }

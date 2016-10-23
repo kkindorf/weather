@@ -24,7 +24,7 @@ var CurrentWeatherContainer = React.createClass({
 					<div className="wrapper">
 					<div className="current-weather">
 				<h1 className="city">{this.props.city}</h1>
-				<p>{this.props.temp} {this.props.description}</p>
+				<h2>{this.props.temp} {this.props.description}</h2>
 				<i className={"wi wi-owm-"+this.props.id}></i>
 				<div className="padding-bottom">
 				<button className="btn btn-default link" role="button"><a href="https://pure-scrubland-15027.herokuapp.com">Update Weather</a></button>
@@ -35,7 +35,7 @@ var CurrentWeatherContainer = React.createClass({
 				</div>
 			</div>};
 			</div>
-			
+
 		);
 	}
 })
@@ -52,4 +52,3 @@ var mapStateToProps = function(state, props){
 }
 exports.ACurrentWeatherContainer = connect(mapStateToProps)(CurrentWeatherContainer)
 exports.CurrentWeatherContainer = CurrentWeatherContainer;
-
