@@ -100,24 +100,12 @@ a{
 
 /*media queries*/
 
-@media screen and (max-width:650px) {
-
+@media screen and (max-width:500px) {
 	.wrapper{
 		width: 400px;
-		height: 500px;
+		height: 480px;
 	}
-    .loader{
-        bottom: 0;
-        height: 100px;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100px;
-        color: white;
-        padding-top:10%;
-}
+
 
 
 
