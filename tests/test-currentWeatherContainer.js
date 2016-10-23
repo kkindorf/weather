@@ -28,14 +28,14 @@ describe('CurrentWeather component', function(){
 		city.type.should.equal('h1');
 		city.props.className.should.equal('city');
 		city.props.children.should.equal('Boston');
-		var p = currentWeather.props.children[1];
-		p.type.should.equal('p');
+		var h2 = currentWeather.props.children[1];
+		h2.type.should.equal('h2');
 		var i = currentWeather.props.children[2];
 		i.type.should.equal('i');
 		i.props.className.should.equal('wi wi-owm-Hi!');
 
 
-		
+
 
 
 	})
