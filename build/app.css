@@ -24,14 +24,14 @@ body{
   text-align: center;
 }
 
-.temp{
-	color: #d70206;
+.humidity{
+	color: #f05b4f;
 	font-weight: bolder;
 	display: inline;
 	float: left;
 }
-.humidity{
-	color: #f05b4f;
+.temp {
+	color: #d70206;
     font-weight: bolder;
     display: inline;
     padding-right: 2%;
