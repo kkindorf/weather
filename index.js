@@ -12,10 +12,12 @@ var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var routes = (
-			<Route path = '/' component={CurrentWeatherContainer} >
-				<IndexRoute component={HourlyWeatherForeCast} />
-				<Route path ='/fivedayforecast' component={FiveDayWeatherForeCast} />
-			</Route>
+			 <Router history= {hashHistory}>
+				<Route path = '/' component={CurrentWeatherContainer} >
+					<IndexRoute component={HourlyWeatherForeCast} />
+					<Route path ='/fivedayforecast' component={FiveDayWeatherForeCast} />
+				</Route>
+			 </Router>
 	)
 
 document.addEventListener('DOMContentLoaded', function(){
