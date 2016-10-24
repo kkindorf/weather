@@ -60,10 +60,14 @@
 	var store = __webpack_require__(272);
 	
 	var routes = React.createElement(
-		Route,
-		{ path: '/', component: CurrentWeatherContainer },
-		React.createElement(IndexRoute, { component: HourlyWeatherForeCast }),
-		React.createElement(Route, { path: '/fivedayforecast', component: FiveDayWeatherForeCast })
+		Router,
+		{ history: hashHistory },
+		React.createElement(
+			Route,
+			{ path: '/', component: CurrentWeatherContainer },
+			React.createElement(IndexRoute, { component: HourlyWeatherForeCast }),
+			React.createElement(Route, { path: '/fivedayforecast', component: FiveDayWeatherForeCast })
+		)
 	);
 	
 	document.addEventListener('DOMContentLoaded', function () {
@@ -21493,11 +21497,11 @@
 						'div',
 						{ className: 'padding-bottom' },
 						_react2.default.createElement(
-							'button',
-							{ className: 'btn btn-default link', type: 'button' },
+							Link,
+							{ to: '/fivedayforecast' },
 							_react2.default.createElement(
-								Link,
-								{ to: '/fivedayforecast' },
+								'a',
+								{ className: 'btn btn-default link', role: 'button' },
 								'Get Five Day Forecast'
 							)
 						)
@@ -27253,7 +27257,6 @@
 	        error: error
 	    };
 	};
-	http: //localhost:3000/
 	
 	var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
@@ -34051,68 +34054,68 @@
 	var ChartistGraph = __webpack_require__(268);
 	
 	var FiveDayWeatherForeCast = _react2.default.createClass({
-	    displayName: 'FiveDayWeatherForeCast',
+		displayName: 'FiveDayWeatherForeCast',
 	
-	    componentDidMount: function componentDidMount() {
-	        this.props.dispatch(actions.getFiveDayWeather(this.props.data));
-	    },
+		componentDidMount: function componentDidMount() {
+			this.props.dispatch(actions.getFiveDayWeather(this.props.data));
+		},
 	
-	    render: function render() {
-	        return _react2.default.createElement(
-	            'div',
-	            null,
-	            this.props.loadFive ? _react2.default.createElement(
-	                'div',
-	                { className: 'loadFive' },
-	                _react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'sr-only' },
-	                    'Loading'
-	                )
-	            ) : _react2.default.createElement(
-	                'div',
-	                { className: 'pos-relative' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'padding-bottom' },
-	                    _react2.default.createElement(
-	                        'button',
-	                        { className: 'btn btn-default link', type: 'button' },
-	                        _react2.default.createElement(
-	                            Link,
-	                            { to: '/' },
-	                            'Get Hourly Forecast'
-	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'h4',
-	                    { className: 'title' },
-	                    'Five Day Forecast'
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    { className: 'temp' },
-	                    'Temp F'
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    { className: 'humidity' },
-	                    'Humidity %'
-	                ),
-	                _react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
-	            )
-	        );
-	    }
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				this.props.loadFive ? _react2.default.createElement(
+					'div',
+					{ className: 'loadFive' },
+					_react2.default.createElement('i', { className: 'fa fa-refresh fa-spin fa-5x fa-fw' }),
+					_react2.default.createElement(
+						'span',
+						{ className: 'sr-only' },
+						'Loading'
+					)
+				) : _react2.default.createElement(
+					'div',
+					{ className: 'pos-relative' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'padding-bottom' },
+						_react2.default.createElement(
+							Link,
+							{ to: '/' },
+							_react2.default.createElement(
+								'a',
+								{ className: 'btn btn-default link', type: 'button' },
+								'Get Hourly Forecast'
+							)
+						)
+					),
+					_react2.default.createElement(
+						'h4',
+						{ className: 'title' },
+						'Five Day Forecast'
+					),
+					_react2.default.createElement(
+						'p',
+						{ className: 'temp' },
+						'Temp F'
+					),
+					_react2.default.createElement(
+						'p',
+						{ className: 'humidity' },
+						'Humidity %'
+					),
+					_react2.default.createElement(ChartistGraph, { data: this.props.data, type: 'Bar', options: this.props.options })
+				)
+			);
+		}
 	});
 	var mapStateToProps = function mapStateToProps(state, props) {
-	    return {
-	        data: state.fiveDayForeCast,
-	        loadFive: state.loadFive,
-	        options: state.fiveDayOptions
+		return {
+			data: state.fiveDayForeCast,
+			loadFive: state.loadFive,
+			options: state.fiveDayOptions
 	
-	    };
+		};
 	};
 	exports.AFiveDayForeCast = connect(mapStateToProps)(FiveDayWeatherForeCast);
 	exports.FiveDayForeCast = FiveDayWeatherForeCast;
@@ -34124,8 +34127,6 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	//var HourlyWeatherForeCast = require('./hourlyForeCast');
-	//var FiveDayWeatherForeCast = require('./fiveDayForeCast');
 	var router = __webpack_require__(173);
 	var Router = router.Router;
 	var Route = router.Route;
@@ -34175,13 +34176,9 @@
 							'div',
 							{ className: 'padding-bottom' },
 							React.createElement(
-								'button',
-								{ className: 'btn btn-default link', role: 'button' },
-								React.createElement(
-									'a',
-									{ href: 'https://pure-scrubland-15027.herokuapp.com' },
-									'Update Weather'
-								)
+								'a',
+								{ className: 'btn btn-default link', href: 'https://pure-scrubland-15027.herokuapp.com', role: 'button' },
+								'Update Weather'
 							)
 						)
 					),

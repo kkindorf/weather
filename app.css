@@ -61,19 +61,14 @@ i{
 	padding: 8px;
 
 }
-.link{
-    color: white;
-    text-decoration: none;
-    padding: 4px;
-    background: #33004C;
-    margin-top: 8px;
-		border: none;
-}
-
 a{
+	color: white;
 	text-decoration: none;
-  color: white;
-  font-size: 1.3em;
+	padding: 4px;
+	background: #33004C;
+	margin-top: 15px;
+	border: none;
+  font-size: 1.1em;
 }
 .ct-label {
     font-size: 15px;
