@@ -13,25 +13,25 @@ var CurrentWeatherContainer = React.createClass({
 	render: function(){
 		return (
 			<div>
-			 {this.props.loading ?
-					<div className="loader">
-						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
-						<span className="sr-only">Loading</span>
-					</div>
-					:
-					<div className="wrapper">
+				{this.props.loading ?
+				<div className="loader">
+					<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
+					<span className="sr-only">Loading</span>
+				</div>
+				:
+				<div className="wrapper">
 					<div className="current-weather">
-				<h1 className="city">{this.props.city}</h1>
-				<h2>{this.props.temp} {this.props.description}</h2>
-				<i className={"wi wi-owm-"+this.props.id}></i>
-				<div className="padding-bottom">
-				<button className="btn btn-default link" role="button"><a href="https://pure-scrubland-15027.herokuapp.com">Update Weather</a></button>
-				</div>
-			</div>
-			<div>
-					{this.props.children}
-				</div>
-			</div>};
+						<h1 className="city">{this.props.city}</h1>
+						<h2>{this.props.temp} {this.props.description}</h2>
+						<i className={"wi wi-owm-"+this.props.id}></i>
+						<div className="padding-bottom">
+							<button className="btn btn-default link" role="button"><a href="https://pure-scrubland-15027.herokuapp.com">Update Weather</a></button>
+						</div>
+					</div>
+					<div>
+						{this.props.children}
+					</div>
+				</div>};
 			</div>
 
 		);
