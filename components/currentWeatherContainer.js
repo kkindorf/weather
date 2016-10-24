@@ -1,6 +1,4 @@
 var React = require('react');
-//var HourlyWeatherForeCast = require('./hourlyForeCast');
-//var FiveDayWeatherForeCast = require('./fiveDayForeCast');
 var router = require('react-router');
 var Router = router.Router;
 var Route = router.Route;
