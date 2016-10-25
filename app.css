@@ -6,15 +6,9 @@ body{
 .wrapper{
 	text-align: center;
   margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   width: 500px;
-  height: 600px;
-	text-align: center;
 	color: white;
+	padding-top:4%;
 }
 .city-temp{
 	display: inline;
@@ -95,17 +89,9 @@ a{
 
 /*media queries*/
 
-@media screen and (max-width:500px) {
-	.wrapper{
-		width: 400px;
-		height: 480px;
-	}
-
-}
 @media screen and (max-width:400px) {
 	.wrapper{
-		width: 310px;
-		height: 400px;
+		width: 360px;
 	}
 
 }
