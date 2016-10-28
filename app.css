@@ -92,3 +92,8 @@ a {
     text-align: center;
     color: white;
 }
+@media only screen and (max-width: 500px) {
+	.wrapper {
+	    padding-top: 1%;
+	}
+}
