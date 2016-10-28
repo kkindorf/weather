@@ -27258,7 +27258,8 @@
 	    };
 	};
 	
-	var rootUrl = 'https://pure-scrubland-15027.herokuapp.com';
+	https: //pure-scrubland-15027.herokuapp.com
+	var rootUrl = 'http://localhost:3000';
 	var getCurrentWeather = function getCurrentWeather(city, temp, description, id) {
 	    return function (dispatch) {
 	        if (navigator.geolocation) {
