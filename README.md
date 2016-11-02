@@ -14,12 +14,6 @@ to make tweaks to what is being displayed. Chartist's ease of use allows for thi
 
 Screenshots:
 
-![alt tag](http://i.imgur.com/CIJdu4x.png)
+![alt tag](http://i.imgur.com/Z4KGkdL.png)
 
-The above image is of the application on a macbook air. My design concept for this application were aimed at simplicity for reading and
-understanding the data being presented to the user. As you can see I have two components being rendered. The top level component is my currentWeatherContainer component. This is where I am displaying the city, temperature, description and icon. 
-The second component is my hourly weather chart that displays lines depicting the current humidity in percent and temperature in fahrenheit.
-
-![alt tag](http://i.imgur.com/98qRBJn.png)
-
-Here is another image of the application with responsive features. The layout of the application is nearly the same. With the benefit of Chartist's built in responsiveness for charts, it was very easy to build this application the idea of making it responsive first and have the layout be adaptable to any screen size.
+The above image is of the application on a macbook air. My design concept for this application was aimed towards simplicity for reading. The top level component is my currentWeatherContainer component. This is where I am displaying the city, temperature, description and icon. The second component is my hourly weather chart that displays lines depicting the current humidity in percent and temperature in fahrenheit.
