@@ -34172,15 +34172,7 @@
 							this.props.description
 						),
 						React.createElement('i', { className: "wi wi-owm-" + this.props.id }),
-						React.createElement(
-							'div',
-							{ className: 'padding-bottom' },
-							React.createElement(
-								'a',
-								{ className: 'btn btn-default link', href: 'https://pure-scrubland-15027.herokuapp.com', role: 'button' },
-								'Update Weather'
-							)
-						)
+						React.createElement('div', { className: 'padding-bottom' })
 					),
 					React.createElement(
 						'div',
