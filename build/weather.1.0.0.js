@@ -21494,18 +21494,13 @@
 					'div',
 					{ className: 'pos-relative' },
 					_react2.default.createElement(
-						'div',
-						{ className: 'padding-bottom' },
-						_react2.default.createElement(
-							Link,
-							{ to: '/fivedayforecast', className: 'btn btn-default link', role: 'button' },
-							'Get Five Day Forecast'
-						)
-					),
-					_react2.default.createElement(
 						'h4',
 						{ className: 'title' },
-						'Hourly Forecast'
+						_react2.default.createElement(
+							Link,
+							{ to: '/fivedayforecast' },
+							'Hourly Forecast'
+						)
 					),
 					_react2.default.createElement(
 						'p',
@@ -34073,18 +34068,13 @@
 	                'div',
 	                { className: 'pos-relative' },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'padding-bottom' },
-	                    _react2.default.createElement(
-	                        Link,
-	                        { to: '/', className: 'btn btn-default link', type: 'button' },
-	                        'Get Hourly Forecast'
-	                    )
-	                ),
-	                _react2.default.createElement(
 	                    'h4',
 	                    { className: 'title' },
-	                    'Five Day Forecast'
+	                    _react2.default.createElement(
+	                        Link,
+	                        { to: '/' },
+	                        'Five Day Forecast'
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'p',
@@ -34125,12 +34115,24 @@
 	var Link = router.Link;
 	var actions = __webpack_require__(236);
 	var connect = __webpack_require__(239).connect;
-	
+	var initialState = {
+		showF: 'show-fahr',
+		showC: 'hide-cels'
+	};
 	var CurrentWeatherContainer = React.createClass({
 		displayName: 'CurrentWeatherContainer',
 	
+		getInitialState: function getInitialState() {
+			return initialState;
+		},
+		onClickF: function onClickF() {
+			this.setState({ showF: 'hide-fahr', showC: 'show-cels' });
+		},
+		onClickC: function onClickC() {
+			this.setState({ showF: 'show-fahr', showC: 'hide-cels' });
+		},
 		componentDidMount: function componentDidMount() {
-			this.props.dispatch(actions.getCurrentWeather(this.props.city, this.props.temp, this.props.description, this.props.id));
+			this.props.dispatch(actions.getCurrentWeather(this.props.city, this.props.temp, this.props.currentC, this.props.description, this.props.id));
 		},
 		render: function render() {
 			return React.createElement(
@@ -34158,10 +34160,30 @@
 						),
 						React.createElement(
 							'h2',
-							null,
+							{ onClick: this.onClickC, className: this.state.showC },
+							' ',
+							this.props.currentC,
+							' ',
+							React.createElement(
+								'a',
+								{ href: '#' },
+								'C'
+							),
+							this.props.description
+						),
+						React.createElement(
+							'h2',
+							{ onClick: this.onClickF, className: this.state.showF },
 							this.props.temp,
 							' ',
-							this.props.description
+							React.createElement(
+								'a',
+								{ href: '#' },
+								'F'
+							),
+							' ',
+							this.props.description,
+							' '
 						),
 						React.createElement('i', { className: "wi wi-owm-" + this.props.id }),
 						React.createElement('div', { className: 'padding-bottom' })
@@ -34181,6 +34203,7 @@
 		return {
 			city: state.currentCityName,
 			temp: state.currentTemp,
+			currentC: state.currentC,
 			description: state.currentDescription,
 			id: state.id,
 			loading: state.loading
@@ -34244,6 +34267,7 @@
 	var initialWeatherState = {
 	    currentCityName: '',
 	    currentTemp: '',
+	    currentC: '',
 	    currentDescription: '',
 	    id: '',
 	    threeHourForeCast: {},
@@ -34260,7 +34284,8 @@
 	    if (action.type === actions.SHOW_CURRENT_WEATHER) {
 	        var updatedCurrentWeather = Object.assign({}, state, {
 	            currentCityName: action.city,
-	            currentTemp: Math.round(action.temp) + " F ",
+	            currentTemp: Math.round(action.temp),
+	            currentC: getCelcius(action.temp),
 	            currentDescription: action.description,
 	            id: action.id,
 	            loading: false
@@ -34342,6 +34367,9 @@
 	        stringTime = (stringTime - 12).toString() + ' PM';
 	    }
 	    return stringTime;
+	}
+	function getCelcius(f) {
+	    return Math.round((f - 32) * 5 / 9);
 	}
 	
 	exports.weatherReducer = weatherReducer;

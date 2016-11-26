@@ -3,6 +3,7 @@ var actions = require('./actions');
 var initialWeatherState = {
             currentCityName: '',
 	    currentTemp: '',
+      currentC: '',
 	    currentDescription: '',
 	    id: '',
 	    threeHourForeCast: {},
@@ -11,7 +12,7 @@ var initialWeatherState = {
 	    fiveDayOption: {},
 	    loading: true,
 	    loadFive: true,
-        loadHour: true
+      loadHour: true
 
     }
     var weatherReducer = function(state, action){
@@ -19,7 +20,8 @@ var initialWeatherState = {
         if(action.type === actions.SHOW_CURRENT_WEATHER){
             var updatedCurrentWeather = Object.assign({}, state, {
                 currentCityName: action.city,
-                currentTemp: Math.round(action.temp) +" F ",
+                currentTemp: Math.round(action.temp),
+                currentC: getCelcius(action.temp),
                 currentDescription: action.description,
                 id: action.id,
 				loading: false
@@ -116,6 +118,8 @@ var initialWeatherState = {
         }
         return stringTime;
     }
-
+    function getCelcius(f){
+      return Math.round((f -32) * 5/9);
+    }
 
     exports.weatherReducer = weatherReducer;

@@ -35,7 +35,12 @@ body {
     float: left;
     padding-left: 45px;
 }
-
+.show-fahr, .show-cels{
+  display: block;
+}
+.hide-cels, .hide-fahr{
+  display: none;
+}
 .pos-relative .title {
     text-align: center;
     padding-bottom: 0;
@@ -60,8 +65,7 @@ i {
 }
 
 a {
-    color: white;
-    text-decoration: none;
+    color: #4083ef;
     padding: 8px;
     background: #33004C;
     border: none;
