@@ -66,10 +66,11 @@ i {
 
 a {
     color: #4083ef;
+    text-decoration: none;
     padding: 8px;
     background: #33004C;
     border: none;
-    font-size: 1.1em;
+    font-size: 1.4em;
 }
 
 .ct-label {
