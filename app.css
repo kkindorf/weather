@@ -59,12 +59,20 @@ i {
     padding-bottom: 25px;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    background: #33004C;
+    border: none;
+    font-size: 1.1em;
+}
 
 .ct-label {
     font-size: 15px;
 }
 
-.loader{
+.loader {
     bottom: 0;
     height: 100px;
     left: 0;
