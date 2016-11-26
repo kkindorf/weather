@@ -21497,11 +21497,11 @@
 						'div',
 						{ className: 'padding-bottom' },
 						_react2.default.createElement(
-							Link,
-							{ to: '/fivedayforecast' },
+							'a',
+							{ className: 'btn btn-default link', role: 'button' },
 							_react2.default.createElement(
-								'a',
-								{ className: 'btn btn-default link', role: 'button' },
+								Link,
+								{ to: '/fivedayforecast' },
 								'Get Five Day Forecast'
 							)
 						)
