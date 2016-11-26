@@ -26,10 +26,10 @@ var CurrentWeatherContainer = React.createClass({
 		return (
 			<div>
 				{this.props.loading ?
-				<div className="loader">
-					<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
-					<span className="sr-only">Loading</span>
-				</div>
+					<div className="loader">
+						<i className="fa fa-refresh fa-spin fa-5x fa-fw"></i>
+						<span className="sr-only">Loading</span>
+					</div>
 				:
 				<div className="wrapper">
 					<div className="current-weather">
