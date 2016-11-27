@@ -34167,7 +34167,7 @@
 							React.createElement(
 								'a',
 								{ href: '#' },
-								'C'
+								'°C'
 							),
 							this.props.description
 						),
@@ -34179,7 +34179,7 @@
 							React.createElement(
 								'a',
 								{ href: '#' },
-								'F'
+								'°F'
 							),
 							' ',
 							this.props.description,
