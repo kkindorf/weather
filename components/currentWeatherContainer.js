@@ -34,8 +34,8 @@ var CurrentWeatherContainer = React.createClass({
 				<div className="wrapper">
 					<div className="current-weather">
 						<h1 className="city">{this.props.city}</h1>
-						<h2 onClick = {this.onClickC} className={this.state.showC}> {this.props.currentC} <a href="#">&deg;C</a>{this.props.description}</h2>
-						<h2 onClick = {this.onClickF} className={this.state.showF}>{this.props.temp} <a href="#">&deg;F</a> {this.props.description} </h2>
+						<h2 onClick = {this.onClickC} className={this.state.showC}> {this.props.currentC} <span className="degs">&deg;C</span> {this.props.description}</h2>
+						<h2 onClick = {this.onClickF} className={this.state.showF}>{this.props.temp} <span className="degs">&deg;F</span> {this.props.description} </h2>
 						<i className={"wi wi-owm-"+this.props.id}></i>
 						<div className="padding-bottom">
 						</div>

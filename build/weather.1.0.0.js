@@ -34165,10 +34165,11 @@
 							this.props.currentC,
 							' ',
 							React.createElement(
-								'a',
-								{ href: '#' },
+								'span',
+								{ className: 'degs' },
 								'°C'
 							),
+							' ',
 							this.props.description
 						),
 						React.createElement(
@@ -34177,8 +34178,8 @@
 							this.props.temp,
 							' ',
 							React.createElement(
-								'a',
-								{ href: '#' },
+								'span',
+								{ className: 'degs' },
 								'°F'
 							),
 							' ',

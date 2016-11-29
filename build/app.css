@@ -63,13 +63,19 @@ i {
     font-size: 95px;
 }
 
-a {
+a, .degs {
     color: #4083ef;
     text-decoration: none;
     padding: 8px;
     background: #33004C;
     border: none;
     font-size: 1.4em;
+}
+.degs{
+  color: #4083ef !important;
+}
+.degs:hover{
+  cursor: pointer;
 }
 
 .ct-label {
